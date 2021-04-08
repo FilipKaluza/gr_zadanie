@@ -1,0 +1,61 @@
+
+
+.Card {
+    width: 50%;
+    height: 186px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.Card {
+    background-color: #FAF9F9;
+    border: 1px solid #CD8B65;
+}
+
+.CardActive {
+    background: linear-gradient(180deg, #CD8B65 0%, #BB6B3D 100%);
+    box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07), 0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198), 0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275), 0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035), 0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725), 0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802);
+}
+
+.WholeOrg {
+    border-radius: 0px 24px 24px 0px;
+}
+
+.Specific {
+    border-radius: 24px 0px 0px 24px;
+}
+
+.CardImageWrapper {
+    height: 80px;
+    width: 80px;
+    margin: 23px 0 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.ActiveWrapper {
+    background: #a96541;
+}
+
+.ActiveWrapper img {
+    color: #fff;
+    opacity: 1!important;
+}
+
+.CardImageWrapper img {
+    color: #fff;
+}
+
+.Card h2 {
+    width: 80%;
+    margin: 17px 0 24px 25px;
+    font-family: "Public Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 21px;
+    color: #585757;
+}

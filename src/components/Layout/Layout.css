@@ -1,0 +1,14 @@
+.Layout {
+    height: 800px;
+    max-width: 1000px;
+    margin: 89px auto 0 auto;
+}
+
+.DogImage {
+    width: 100%;
+    height: auto;
+}
+
+.NavProgress {
+    margin-bottom: 28px;
+}

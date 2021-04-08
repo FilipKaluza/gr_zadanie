@@ -1,0 +1,44 @@
+
+.ContributionButton {
+    width: 60px;
+    height: 53px;
+    background: #FFFFFF;
+    border: 1px solid #DFDFDF;
+    box-sizing: border-box;
+    border-radius: 8px;
+    margin-right: 7px;
+    cursor: pointer;
+}
+
+.ContributionInput {
+    width: 120px;
+    height: 53px;
+    border: 1px solid #DFDFDF;
+    box-sizing: border-box;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.ContributionInput input {
+    border: none;
+    width: 50px;
+}
+
+.ContributionInput p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.ContributeItemSelected {
+    background: linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%)!important;
+    color: #fff;
+}
+
+.ContributeItemSelected input {
+    background: linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%)!important;
+    color: #fff;
+}
