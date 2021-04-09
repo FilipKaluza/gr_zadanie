@@ -49,7 +49,7 @@ const ChooseContribution = (props) => {
 
     const selectShelterHandler = (event) => {
         const indexOfSHelter = (shelters.findIndex(shelter => shelter.name === event.target.value))
-        dispatch(actions.set_shelter_id({ID: indexOfSHelter}))
+        dispatch(actions.set_shelter_id({Id: indexOfSHelter, name: event.target.value }))
     };
 
 

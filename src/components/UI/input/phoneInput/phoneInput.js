@@ -15,11 +15,11 @@ const PhoneInputComponent = (props) => {
             <Col span={20}>
                 <label > Telefónne číslo </label> (Nepovinné pole)
                 <div className="input">
-                    <PhoneInput country={"sk"} onlyCountries={["sk", "cz"]} onChange={props.changed} />
+                    <PhoneInput country={"sk"} onlyCountries={["sk", "cz"]} onChange={props.changed} autoFormat={true} />
                 </div>
             </Col>
             {props.touched ?
-                <Col span={4} >
+                <Col span={4} className="InputValidityWrapper" >
                     { props.isValid ? <div className="InputValid"> <CheckCircleOutlined />  </div> : <div className="InputInvalid" > <CloseCircleOutlined /> </div>  }
                 </Col> : null }
         </Row>

@@ -1,8 +1,9 @@
 import * as actions from "./actionTypes";
 
-export const set_shelter_id = (ID) => {
+export const set_shelter_id = (Id, name) => {
     return {
         type: actions.SET_SHELTER_ID,
-        ID: ID
+        Id: Id,
+        name: name
     }
 }
