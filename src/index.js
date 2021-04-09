@@ -9,12 +9,14 @@ import { createStore, compose, combineReducers } from 'redux';
 // import reducer 
 import contributionReducer from "./components/store/reducers/chooseContributionReducer";
 import shelterIdReducer from "./components/store/reducers/shelterIdReducer";
+import contactDataReducer from "./components/store/reducers/contactDataReducer";
 
 const composeEnhancers = process.env.NODE_ENV === "development" ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__: null || compose; // for redux extension in development
 
 const rootReducer = combineReducers({
   contributionReducer: contributionReducer,
-  shelterIdReducer: shelterIdReducer
+  shelterIdReducer: shelterIdReducer,
+  contactDataReducer: contactDataReducer
 })
 
 const store = createStore(rootReducer, composeEnhancers())

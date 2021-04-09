@@ -1,0 +1,30 @@
+import React from 'react';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/style.css'
+
+import Row from "antd/lib/row";
+import Col from "antd/lib/col";
+
+// import icons
+import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
+
+const PhoneInputComponent = (props) => {
+    
+    return(
+        <Row className="Form-group-mobile">
+            <Col span={20}>
+                <label > Telefónne číslo </label> (Nepovinné pole)
+                <div className="input">
+                    <PhoneInput country={"sk"} onlyCountries={["sk", "cz"]} onChange={props.changed} />
+                </div>
+            </Col>
+            {props.touched ?
+                <Col span={4} >
+                    { props.isValid ? <div className="InputValid"> <CheckCircleOutlined />  </div> : <div className="InputInvalid" > <CloseCircleOutlined /> </div>  }
+                </Col> : null }
+        </Row>
+
+    );
+};
+
+export default PhoneInputComponent;

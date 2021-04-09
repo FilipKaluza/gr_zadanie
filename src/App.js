@@ -4,6 +4,7 @@ import React from 'react';
 import Navbar from "./components/navbar/navbar"
 import Layout from "./components/Layout/Layout";
 import Contribution from "./components/Contribution/Contribution";
+import ContactData from "./components/ContactData/ContactData";
 
 
 const App = () => {
@@ -12,7 +13,8 @@ const App = () => {
     <div className="App">
         <Navbar />
         <Layout >
-          <Contribution />
+          {/* <Contribution /> */}
+          <ContactData />
         </Layout >
     </div>
   );
