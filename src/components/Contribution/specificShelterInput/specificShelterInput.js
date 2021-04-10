@@ -13,6 +13,7 @@ const specificShelterInput = (props) => {
     if (props.shelters) {
         input = 
         <select className="SelectShelter" onChange={props.changed} >
+            <option > Vyberte útolok zo zoznamu </option>
             {props.shelters.map( (shelter) => {
                 return <option key={shelter.id} value={shelter.name} > {shelter.name} </option>
             })}

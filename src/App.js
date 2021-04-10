@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Route } from "react-router-dom";
+
 // import components
 import Navbar from "./components/navbar/navbar"
 import Layout from "./components/Layout/Layout";
@@ -14,14 +16,10 @@ const App = () => {
     <div className="App">
         <Navbar />
         <Layout>
-          <Contribution />
+          <Route path="/" exact component={Contribution} />
+          <Route path="/contactdata" component={ContactData} />
+          <Route path="/checkout" component={Checkout} />
         </Layout>
-        <Layout>
-          <ContactData />
-        </Layout>
-        <Layout >
-          <Checkout />
-        </Layout >
     </div>
   );
 };

@@ -11,6 +11,9 @@ import contributionReducer from "./components/store/reducers/chooseContributionR
 import shelterIdReducer from "./components/store/reducers/shelterIdReducer";
 import contactDataReducer from "./components/store/reducers/contactDataReducer";
 
+// import Router
+import { BrowserRouter } from "react-router-dom";
+
 const composeEnhancers = process.env.NODE_ENV === "development" ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__: null || compose; // for redux extension in development
 
 const rootReducer = combineReducers({
@@ -22,11 +25,11 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer, composeEnhancers())
 
 ReactDOM.render(
-    <React.StrictMode>
-      <Provider store={store}>
-          <App />
-      </Provider>,
-    </React.StrictMode>,
+    <BrowserRouter>
+        <Provider store={store}>
+            <App />
+        </Provider>,
+    </BrowserRouter>,
   document.getElementById('root')
 );
 

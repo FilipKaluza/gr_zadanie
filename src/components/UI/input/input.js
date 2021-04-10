@@ -37,7 +37,6 @@ const input = (props) => {
                 </Col> : null
         
             }
-
         </Row>
         
     )

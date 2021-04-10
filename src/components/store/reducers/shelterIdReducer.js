@@ -9,7 +9,7 @@ const shelterIdReducer = (state = initialState, actions) => {
     if (actionsTypes.SET_SHELTER_ID === "SET_SHELTER_ID" ) {
         return {
             ...state,
-            shelter_id: actions.ID,
+            shelter_id: actions.Id,
             name: actions.name
         }
     } 

@@ -1,5 +1,13 @@
 import React from 'react';
 
-const contributionValueHeader = () => <p className="SecondaryHeader" > Suma, ktorou chcem prispieť </p>
+const contributionValueHeader = (props) => {
+    
+    return(
+        <div style={{ display: "flex", justifyContent: "space-between"}}>
+            <p className="SecondaryHeader" > Suma, ktorou chcem prispieť </p>
+            <p className="ChooseSpecificRequiredOrNot"> Povinné pole  </p>
+        </div>
+    );
+}
 
 export default contributionValueHeader;

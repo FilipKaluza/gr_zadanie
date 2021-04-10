@@ -8,11 +8,11 @@ import * as actions from "../store/actions/index";
 import MainHeaderContactData from "./mainheaderContactData/mainHeaderContactData";
 import SecondaryHeaderContactData from "./secondaryHeaderContactData/secondaryHeaderContactData";
 import Input from "../UI/input/input";
-import PhoneInput from "../UI/input/phoneInput/phoneInput";
+import PhoneInput from "../UI/phoneInput/phoneInput";
+import Button from "../UI/button/button";
 
 // import checkValidityfunction
 import checkValidity from "..//utility/checkValidity";
-
 
 const ContactData = (props) => {
 
@@ -65,12 +65,36 @@ const ContactData = (props) => {
                 required={formElement.config.validation.required} /> 
     ));
 
+    const buttonBackProperties = {
+        className: "Back",
+        value: "Späť",
+        disabled: false
+    }
+
+    let continueBtnProperties = {
+        className: "Disabled",
+        value: "Pokračovať",
+        disabled: true
+    }
+
+    if (contactState.name.valid && contactState.email.valid && contactState.surname.valid) {
+        continueBtnProperties = {
+            ...continueBtnProperties,
+            className: "Enabled",
+            disabled: false
+        }
+    }
+
     return(
         <div className="ContactData" >
             <MainHeaderContactData />
             <SecondaryHeaderContactData />
             {inputs}
             <PhoneInput changed={value => phoneChangeHandler({value})}  isValid={phoneState.valid} touched={phoneState.touched} />
+            <div style={{ display: "flex", justifyContent: "space-between", margin: "68px 0 0 0" }} >
+                <Button url="/" buttonProperties={buttonBackProperties} />
+                <Button url="/checkout" buttonProperties={continueBtnProperties} />
+            </div>
         </div>
     );
 };

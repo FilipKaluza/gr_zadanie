@@ -51,3 +51,19 @@
     margin: auto 0 auto 16px;
 }
 
+.errorMessage, .responseMessage {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #b50000;
+    animation: fadeInResMessage 1s;
+}
+
+.responseMessage {
+    color: #00aa2b;
+}
+
+@keyframes fadeInResMessage {
+    0% { opacity: 0}
+    100% { opacity: 1;}
+}
+
