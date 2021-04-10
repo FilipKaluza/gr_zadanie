@@ -10,4 +10,4 @@ const contributionValueHeader = (props) => {
     );
 }
 
-export default contributionValueHeader;
+export default React.memo(contributionValueHeader);

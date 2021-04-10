@@ -2,17 +2,17 @@ import * as actionsTypes from "../actions/actionTypes";
 
 const initialState = {
     shelter_id: null,
-    name: null,
+    selectedShelter: null,
 };
 
-const shelterIdReducer = (state = initialState, actions) => {
+const shelterReducer = (state = initialState, actions) => {
     if (actionsTypes.SET_SHELTER_ID === "SET_SHELTER_ID" ) {
         return {
             ...state,
             shelter_id: actions.Id,
-            name: actions.name
+            selectedShelter: actions.selectedShelter
         }
     } 
 }
 
-export default shelterIdReducer;
+export default shelterReducer;

@@ -1,10 +1,11 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 
 // connnect Redux and action for redux reducer
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../store/actions/index";
 
 // import child components
+import NavProgress from "../shared/navProgress/navProgress";
 import MainHeaderContactData from "./mainheaderContactData/mainHeaderContactData";
 import SecondaryHeaderContactData from "./secondaryHeaderContactData/secondaryHeaderContactData";
 import Input from "../UI/input/input";
@@ -47,20 +48,14 @@ const ContactData = (props) => {
             config: contactState[key]
         });
     }
-
     
     let inputs = formElementArray.map(formElement => (
             <Input
                 key={formElement.id}
-                name={formElement.config.elementConfig.name}
-                elementType={formElement.config.elementType}
                 elementConfig={formElement.config.elementConfig}
-                value={formElement.config.value}
                 changed={(event) => inputChangedHandler(event, formElement.id)}
                 isValid={formElement.config.valid}
-                shouldValidate={formElement.config.validation}
                 touched={formElement.config.touched}
-                class= {formElement.config.valid  ? "form-group-valid" : "form-group-not-valid"}
                 label={formElement.config.elementConfig.label}
                 required={formElement.config.validation.required} /> 
     ));
@@ -70,6 +65,7 @@ const ContactData = (props) => {
         value: "Späť",
         disabled: false
     }
+
 
     let continueBtnProperties = {
         className: "Disabled",
@@ -84,13 +80,18 @@ const ContactData = (props) => {
             disabled: false
         }
     }
+    
+    const phoneInput = useMemo(() => {
+        return <PhoneInput changed={value => phoneChangeHandler({value})}  isValid={phoneState.valid} touched={phoneState.touched} />
+    }, [phoneState, phoneChangeHandler])
 
     return(
         <div className="ContactData" >
+            <NavProgress />
             <MainHeaderContactData />
             <SecondaryHeaderContactData />
             {inputs}
-            <PhoneInput changed={value => phoneChangeHandler({value})}  isValid={phoneState.valid} touched={phoneState.touched} />
+            {phoneInput}
             <div style={{ display: "flex", justifyContent: "space-between", margin: "68px 0 0 0" }} >
                 <Button url="/" buttonProperties={buttonBackProperties} />
                 <Button url="/checkout" buttonProperties={continueBtnProperties} />

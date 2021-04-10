@@ -94,4 +94,4 @@ const ContributionValue = (props) => {
     );
 };
 
-export default ContributionValue;
+export default React.memo(ContributionValue);

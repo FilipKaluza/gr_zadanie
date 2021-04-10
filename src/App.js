@@ -3,7 +3,6 @@ import React from 'react';
 import { Route } from "react-router-dom";
 
 // import components
-import Navbar from "./components/navbar/navbar"
 import Layout from "./components/Layout/Layout";
 import Contribution from "./components/Contribution/Contribution";
 import ContactData from "./components/ContactData/ContactData";
@@ -14,7 +13,6 @@ const App = () => {
 
   return(
     <div className="App">
-        <Navbar />
         <Layout>
           <Route path="/" exact component={Contribution} />
           <Route path="/contactdata" component={ContactData} />

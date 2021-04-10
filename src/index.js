@@ -8,7 +8,7 @@ import { createStore, compose, combineReducers } from 'redux';
 
 // import reducer 
 import contributionReducer from "./components/store/reducers/chooseContributionReducer";
-import shelterIdReducer from "./components/store/reducers/shelterIdReducer";
+import shelterReducer from "./components/store/reducers/shelterIdReducer";
 import contactDataReducer from "./components/store/reducers/contactDataReducer";
 
 // import Router
@@ -18,7 +18,7 @@ const composeEnhancers = process.env.NODE_ENV === "development" ? window.__REDUX
 
 const rootReducer = combineReducers({
   contributionReducer: contributionReducer,
-  shelterIdReducer: shelterIdReducer,
+  shelterReducer: shelterReducer,
   contactDataReducer: contactDataReducer
 })
 

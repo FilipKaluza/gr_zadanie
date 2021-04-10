@@ -1,5 +1,3 @@
-
-
 .Card {
     width: 50%;
     height: 186px;
@@ -38,15 +36,6 @@
 
 .ActiveWrapper {
     background: #a96541;
-}
-
-.ActiveWrapper img {
-    color: #fff;
-    opacity: 1!important;
-}
-
-.CardImageWrapper img {
-    color: #fff;
 }
 
 .Card h2 {

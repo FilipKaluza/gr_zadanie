@@ -9,9 +9,7 @@ import RightSideOfHeader from "./rightSideOfHeader/rightSideOfHeader";
 // import css
 import "./specificShelterHeader.css";
 
-const contributionHeader = (props) => {
-
-
+const specificShelterHeader = (props) => {
 
     return(
         <Row className="ChooseSpecific" >
@@ -21,4 +19,4 @@ const contributionHeader = (props) => {
     );
 }
 
-export default contributionHeader;
+export default specificShelterHeader;

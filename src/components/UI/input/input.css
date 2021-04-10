@@ -27,6 +27,7 @@
     width: 80%;
     border: none;
     margin-left: 24px;
+    outline: none;
 }
 
 .InputValidityWrapper {

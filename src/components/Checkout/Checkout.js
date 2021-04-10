@@ -5,7 +5,9 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 
 // import child components
+import NavProgress from "../shared/navProgress/navProgress";
 import CheckoutMainHeader from "./checkoutMainHeader/checkoutMainHeader";
+import DataToCheck from "./dataToCheck/dataToCheck";
 import Checkbox from "./checkbox/checkbox";
 import Button from "../UI/button/button";
 
@@ -16,7 +18,7 @@ const Checkout = () => {
     const [checked, setChecked] = useState(false);
 
     const contributionState = useSelector(state => state.contributionReducer )
-    const shelterState = useSelector( state => state.shelterIdReducer )
+    const shelterState = useSelector( state => state.shelterReducer )
     const contactDataState = useSelector( state => state.contactDataReducer )
     const [ response, setResponse ] = useState(null)
     const [ error, setError ] = useState(null)
@@ -24,8 +26,6 @@ const Checkout = () => {
     const handlerCheckbox = () => {
         setChecked(!checked)
     }
-    console.log("Checkout")
-
 
     const sendForm = () => {
         const body = {
@@ -67,24 +67,11 @@ const Checkout = () => {
         }
     }
 
-
     return(
         <div className="Checkout">
+            <NavProgress />
             <CheckoutMainHeader />
-            <h3> Akou formou chcem pomôcť  </h3>
-            { shelterState.shelter_id ?<p> Chcem finančne prispieť konkrétnemu útulku </p> : <p> Chcem finančne prispieť celej nadácii </p> } 
-
-            <h3> Najviac mi záleží na útulku </h3>
-            { shelterState.name ? <p> {shelterState.name} </p> : <p> Prispievam všetkým útulkom rovnomerne </p> } 
-
-            <h3> Suma, ktorou chcem prispieť </h3>
-            <p> { contributionState.value } € </p>
-
-            <h3> E-mailová adresa </h3>
-            <p> { contactDataState.generalInputs.email.value }  </p>
-
-            <h3> Telefónne číslo </h3>
-            { contactDataState.phone.value ?  <p> +{contactDataState.phone.value} </p> : <p> - </p> } 
+            <DataToCheck contributionState={contributionState} shelterState={shelterState} contactDataState={contactDataState} />
             <Checkbox 
                 checked={checked}
                 onChange={handlerCheckbox}

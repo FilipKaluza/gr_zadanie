@@ -46,7 +46,7 @@ const ContributionType = (props) => {
         <Row className="ContributionCards">
             <div className={cardClasses.Specific.Card.join(" ")} onClick={props.selectSpecificContribution} >
                 <div className={cardClasses.Specific.CardImageWrapper.join(" ")} >
-                    <img src={Specific} alt="Specific" />
+                    <img className="icon" src={Specific} alt="Specific" />
                 </div>
                 <h2 className={cardClasses.Specific.Description.join(" ")} > Chcem finančné prispieť konkrétnmeu útulku </h2>
             </div>

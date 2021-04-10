@@ -10,20 +10,12 @@ import "./input.css";
 
 const input = (props) => {
 
-    let inputElement = null;
-
     let requiredOrNot = "(Nepovinné pole)"
     if (props.required) {
         requiredOrNot = "(Povinné pole)"
     }
 
-    switch (props.elementType) {
-        case("input"): 
-            inputElement = <input className="input" {...props.elementConfig} value={props.value} onChange={props.changed} />;
-            break;
-        default:
-            inputElement = <input {...props.elementConfig}  value={props.value} onChange={props.changed} />;
-    }
+    let inputElement = <input className="input" {...props.elementConfig} value={props.value} onChange={props.changed} />;
 
     return(
         <Row className="Form-group" >
@@ -35,7 +27,6 @@ const input = (props) => {
                 <Col className="InputValidityWrapper" span={4}>
                     {  props.isValid ? <div className="InputValid"> <CheckCircleOutlined />  </div> : <div className="InputInvalid" > <CloseCircleOutlined /> </div>  }
                 </Col> : null
-        
             }
         </Row>
         

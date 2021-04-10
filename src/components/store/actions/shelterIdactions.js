@@ -1,9 +1,9 @@
-import * as actions from "./actionTypes";
+import * as actionTypes from "./actionTypes";
 
-export const set_shelter_id = (Id, name) => {
+export const set_shelter = (Id, selectedShelter) => {
     return {
-        type: actions.SET_SHELTER_ID,
+        type: actionTypes.SET_SHELTER_ID,
         Id: Id,
-        name: name
+        selectedShelter: selectedShelter
     }
 }
