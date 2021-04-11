@@ -6,8 +6,8 @@ import * as actions from "../store/actions/index";
 
 // import child components
 import NavProgress from "../shared/navProgress/navProgress";
-import MainHeaderContactData from "./mainheaderContactData/mainHeaderContactData";
-import SecondaryHeaderContactData from "./secondaryHeaderContactData/secondaryHeaderContactData";
+import MainHeader from "../shared/mainHeader/mainHeader";
+import SecondaryHeader from "../shared/secondaryHeader/secondaryHeader";
 import Input from "../UI/input/input";
 import PhoneInput from "../UI/phoneInput/phoneInput";
 import Button from "../UI/button/button";
@@ -89,8 +89,8 @@ const ContactData = (props) => {
     return(
         <div className="ContactData" >
             <NavProgress />
-            <MainHeaderContactData />
-            <SecondaryHeaderContactData />
+            <MainHeader value="Potrebujeme od Vás zopár informácií" />
+            <SecondaryHeader value="O Vás" />
             {inputs}
             {phoneInput}
             <div style={{ display: "flex", justifyContent: "space-between", margin: "68px 0 0 0" }} >

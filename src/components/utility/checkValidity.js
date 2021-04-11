@@ -14,7 +14,8 @@ const checkValidity = (value, rules) => {
     } 
     
     if (rules.email) {
-        formIsValid = value.includes("@") && value.includes(".") && formIsValid;
+        /* formIsValid = value.includes("@") && value.includes(".") && formIsValid; */
+        formIsValid = /.+@.+\.[A-Za-z]+$/.test(value) && formIsValid
     }
 
     if (rules.phone) {

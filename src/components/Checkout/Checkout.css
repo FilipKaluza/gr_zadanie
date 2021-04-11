@@ -1,72 +1,19 @@
-.Checkout h3 {
-    font-weight: 800;
-    font-size: 18px;
-    line-height: 19px;
-    color: #2F2F2F;
-}
-
-.Checkout p {
-    margin-bottom: 22px;
-    font-style: normal;
+.responseMessage, .errorMessage {
     font-size: 16px;
-    line-height: 19px;
-    color: #2F2F2F;
+    color: #1ba200;
+    text-align: center;
+    margin-top: 30px;
+    animation: 1s resIn;
 }
 
-.CheckBoxWrapper {
-    height: 34px;
-    display: flex;
-    align-items: center;
+.errorMessage {
+    color: #cc0000;
 }
 
-.CheckBoxWrapper input {
-    height: 34px;
-    width: 34px;
-    box-sizing: border-box;
-    border-radius: 40px;
-    border: 2px solid #AB7455;
-    cursor: pointer;
+@keyframes resIn {
+    0% {opacity: 0;}
+    100% {opacity: 1}
 }
-
-.CheckBoxWrapper::after {
-    border: 2px solid green;
-    cursor: pointer;
-    background-color: green;
-}
-
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-  }
-
-
-.CheckBoxWrapper p {
-    font-size: 16px;
-    line-height: 21px;
-    margin: auto 0 auto 16px;
-}
-
-.errorMessage, .responseMessage {
-    margin-top: 20px;
-    font-size: 18px;
-    color: #b50000;
-    animation: fadeInResMessage 1s;
-}
-
-.responseMessage {
-    color: #00aa2b;
-}
-
-@keyframes fadeInResMessage {
-    0% { opacity: 0}
-    100% { opacity: 1;}
-}
-
 
 .Enabled, .Disabled {
     width: 124px;

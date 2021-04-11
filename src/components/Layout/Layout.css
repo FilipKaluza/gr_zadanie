@@ -2,6 +2,7 @@
     height: 800px;
     max-width: 1000px;
     margin: 89px auto 0 auto;
+    animation: mainIn 1s;
 }
 
 .DogImage {

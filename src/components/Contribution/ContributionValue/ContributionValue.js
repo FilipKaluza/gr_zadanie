@@ -48,7 +48,7 @@ const ContributionValue = (props) => {
 
 
     const selectCustom = () => {
-        dispatch(actions.select_by_user(null))
+        dispatch(actions.select_by_user(undefined))
     } // special dispatch for adding a classes (see bellow) to a custom Input when the user clicks on Input
 
     let customInputClasses = ["ContributionInput"]
@@ -70,7 +70,7 @@ const ContributionValue = (props) => {
                     <button className={amountOfContribution.value === 100 ? "ContributionButton ContributeItemSelected" : "ContributionButton"}  onClick={contribute_100}   > 100€ </button>
                     <div className={customInputClasses.join(" ")} onClick={selectCustom} >
                         <Row>
-                            <input placeholder="______" onChange={(e) => customChangeHandler(e)}  /> 
+                            <input value={ amountOfContribution.customInputTouched ? amountOfContribution.value : undefined } placeholder="______" onChange={(e) => customChangeHandler(e)}  /> 
                             <p> € </p>
                         </Row>
                     </div>

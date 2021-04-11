@@ -1,22 +1,25 @@
 import React from 'react';
 
+import SecondaryHeader from "../../shared/secondaryHeader/secondaryHeader";
+import CheckoutParagraph from "../../shared/checkoutParagraph/checkoutParagraph";
+
 const dataToCheck = (props) => {
     return(
         <React.Fragment>
-            <h3> Akou formou chcem pomôcť  </h3>
-            { props.typeOfContribution.shelter_id ? <p> Chcem finančne prispieť konkrétnemu útulku </p> : <p> Chcem finančne prispieť celej nadácii </p> } 
+            <SecondaryHeader value= "Akou formou chcem pomôcť" />
+            <CheckoutParagraph value={ props.typeOfContribution.shelter_id ? "Chcem finančne prispieť konkrétnemu útulku" : "Chcem finančne prispieť celej nadácii" } />
 
-            <h3> Najviac mi záleží na útulku </h3>
-            { props.typeOfContribution.selectedShelter ? <p> {props.typeOfContribution.selectedShelter} </p> : <p> Prispievam všetkým útulkom rovnomerne </p> } 
+            <SecondaryHeader value="Najviac mi záleží na útulku" />
+            <CheckoutParagraph value={ props.typeOfContribution.selectedShelter ? props.typeOfContribution.selectedShelter: "Prispievam všetkým útulkom rovnomerne" } />
 
-            <h3> Suma, ktorou chcem prispieť </h3>
-            <p> { props.amoutOfContribution} € </p>
+            <SecondaryHeader value="Suma, ktorou chcem prispieť" />
+            <CheckoutParagraph value={props.amoutOfContribution + "€" } />
 
-            <h3> E-mailová adresa </h3>
-            <p> { props.contactDataState.generalInputs.email.value }  </p>
+            <SecondaryHeader value="E-mailová adresa" />
+            <CheckoutParagraph value={ props.contactDataState.generalInputs.email.value } />
 
-            <h3> Telefónne číslo </h3>
-            { props.contactDataState.phone.value ?  <p> +{props.contactDataState.phone.value} </p> : <p> - </p> }
+            <SecondaryHeader value="Telefónne číslo" />
+            <CheckoutParagraph value={ props.contactDataState.phone.value ?  "+" + props.contactDataState.phone.value  : "-" } />
         </React.Fragment>
     );
        

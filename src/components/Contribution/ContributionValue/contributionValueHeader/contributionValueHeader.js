@@ -1,11 +1,13 @@
 import React from 'react';
 
+import SecondaryHeader from "../../../shared/secondaryHeader/secondaryHeader";
+
 const contributionValueHeader = (props) => {
     
     return(
-        <div style={{ display: "flex", justifyContent: "space-between"}}>
-            <p className="SecondaryHeader" > Suma, ktorou chcem prispieť </p>
-            <p className="ChooseSpecificRequiredOrNot"> Povinné pole  </p>
+        <div style={{ display: "flex", justifyContent: "space-between", margin: "40px 0 0 0"}}>
+            <SecondaryHeader value="Suma, ktorou chcem prispieť" /> 
+            <SecondaryHeader value="Povinné pole" />
         </div>
     );
 }

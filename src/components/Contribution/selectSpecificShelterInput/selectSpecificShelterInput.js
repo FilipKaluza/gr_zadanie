@@ -1,5 +1,8 @@
 import React from 'react';
 
+// import child components
+import SelectSpecificShelterInputHeader from "./selectSpecificShelterInputHeader/selectSpecificShelterInputHeader";
+
 import { useDispatch, useSelector } from "react-redux";
 
 import * as actions from "../../store/actions/index";
@@ -72,7 +75,10 @@ const SelectSpecificShelterInput = (props) => {
     };
 
     return(
-        <Select value={selectedOption} styles={customStyles} options={options[0]} onChange={selectShelterHandler} placeholder="Vyberte útulok zo zoznamu" />
+        <>
+            <SelectSpecificShelterInputHeader value={ props.specificTypeOfContribution ? "Povinné pole" : "Nepovinné pole"} />
+            <Select value={selectedOption} styles={customStyles} options={options[0]} onChange={selectShelterHandler} placeholder="Vyberte útulok zo zoznamu" />
+        </>
     )
 };
 

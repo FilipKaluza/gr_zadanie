@@ -1,7 +1,7 @@
 
 .ContributionButton {
-    width: 60px;
-    height: 53px;
+    width: 65px;
+    height: 65px;
     background: #FFFFFF;
     border: 1px solid #DFDFDF;
     box-sizing: border-box;
@@ -12,8 +12,8 @@
 }
 
 .ContributionInput {
-    width: 120px;
-    height: 53px;
+    width: 150px;
+    height: 65px;
     border: 1px solid #DFDFDF;
     box-sizing: border-box;
     border-radius: 8px;

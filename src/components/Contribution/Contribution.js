@@ -6,9 +6,8 @@ import * as actions from "../store/actions/index";
 
 // import child components
 import NavProgress from "../shared/navProgress/navProgress";
-import MainHeader from "./mainHeader/mainHeader";
+import MainHeader from "../shared/mainHeader/mainHeader";
 import ContributionType from "./contributionType/contributionType";
-import SpecificShelterHeader from "./specificShelterHeader/specificShelterHeader";
 import SelectSpecificShelterInput from "./selectSpecificShelterInput/selectSpecificShelterInput";
 import ContributionValue from "./ContributionValue/ContributionValue";
 import Button from "../UI/button/button";
@@ -29,7 +28,6 @@ const Contribution = (props) => {
                     sheltersAray.push(...res.data[key]) 
                 }
                 setShelters(sheltersAray)
-                localStorage.clear();
             })
             .catch(error => {
                 console.log(error)
@@ -75,15 +73,14 @@ const Contribution = (props) => {
     }, [typeOfContribution, contributeWholeOrg, contributeSpecificShelter])
 
     const selectSpecificShelterInput = useMemo(() => {
-        return <SelectSpecificShelterInput shelters={shelters} />
-    }, [shelters])
+        return <SelectSpecificShelterInput shelters={shelters} specificTypeOfContribution={typeOfContribution.specific} />
+    }, [shelters, typeOfContribution])
 
     return(
         <div className="ChooseContribution">
             <NavProgress />
-            <MainHeader />
+            <MainHeader value="Vyberte si možnosť, ako chcete pomôcť" />
             {contributionType}
-            <SpecificShelterHeader specific={typeOfContribution.specific} />
             {selectSpecificShelterInput}
             <ContributionValue />
             <div style={{ width: "100%", display: "flex", justifyContent: "flex-end", margin: "72px 0 0 0" }} >

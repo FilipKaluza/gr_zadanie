@@ -6,10 +6,11 @@ import axios from "axios";
 
 // import child components
 import NavProgress from "../shared/navProgress/navProgress";
-import CheckoutMainHeader from "./checkoutMainHeader/checkoutMainHeader";
+import MainHeader from "../shared/mainHeader/mainHeader";
 import DataToCheck from "./dataToCheck/dataToCheck";
 import Checkbox from "./checkbox/checkbox";
 import Button from "../UI/button/button";
+import { HeartOutlined, FrownOutlined } from '@ant-design/icons';
 
 import "./Checkout.css";
 
@@ -40,7 +41,7 @@ const Checkout = () => {
         axios.post("https://frontend-assignment-api.goodrequest.com/api/v1/shelters/contribute", body)
             .then(response => {
                 const resMessage = response.data.messages[0].message
-                setResponse(resMessage + ". Ďakujeme :)")
+                setResponse(resMessage + ". Ďakujeme ")
             })
             .catch(error => {
                 setError("Problém pri spojení so serverom, skúte to prosím neskôr. Ďakujeme za pochopenie")
@@ -70,7 +71,7 @@ const Checkout = () => {
     return(
         <div className="Checkout">
             <NavProgress />
-            <CheckoutMainHeader />
+            <MainHeader value="Skontrolujte si zadané údaje" />
             <DataToCheck typeOfContribution={typeOfContribution} amoutOfContribution={amoutOfContribution} contactDataState={contactDataState} />
             <Checkbox 
                 checked={checked}
@@ -81,8 +82,8 @@ const Checkout = () => {
                 <Button url="/contactdata" buttonProperties={buttonBackProperties} />
                 <button className={sendButton.className} disabled={sendButton.disabled} onClick={sendForm} > {sendButton.value} </button>
             </div>
-            { response ? <h1 className="responseMessage" > {response} </h1> : null}
-            { error ? <h1 className="errorMessage" > {error} </h1> : null}
+            { response ? <h1 className="responseMessage" > {response} <HeartOutlined /> </h1> : null}
+            { error ? <h1 className="errorMessage" > {error} <FrownOutlined /> </h1> : null}
         </div>
     );
 };
