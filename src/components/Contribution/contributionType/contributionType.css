@@ -48,3 +48,23 @@
     line-height: 21px;
     color: #585757;
 }
+
+.DesActive {
+    color: #fff!important;
+}
+
+@media (max-width: 740px) {
+    .ContributionCards {
+        margin: 0 25px;
+    }
+    
+    .CardImageWrapper {
+        height: 50px;
+        width: 50px;
+        margin: 10px auto;
+    }
+    
+    .Card h2 {
+        font-size: 14px;
+    }
+}

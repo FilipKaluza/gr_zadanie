@@ -1,4 +1,5 @@
 .Form-group, .Form-group-mobile {
+    font-family: 'Public Sans';
     width: 100%;
     height: 74px;
     background: #FFFFFF;
@@ -15,7 +16,6 @@
 
 .Form-group label, .Form-group-mobile label {
     width: 60%;
-    font-family: Public Sans;
     font-style: normal;
     font-weight: 800;
     font-size: 16px;
@@ -45,4 +45,51 @@
 .InputInvalid {
     color: red;
     font-size: 30px;
+}
+
+@media (max-width: 740px) {
+    .Form-group, .Form-group-mobile {
+        width: calc(100% - 50px);
+        margin: 10px 25px;
+    }
+    
+    .Form-group-mobile {
+        height: 80px;
+    }
+    
+    .Form-group label, .Form-group-mobile label {
+        width: 60%;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 14px;
+    }
+    
+    
+    .Form-group .input, .Form-group-mobile .input {
+        width: 80%;
+        border: none;
+        outline: none;
+        font-size: 14px;
+    }
+    
+    .Form-group-mobile input .react-tel-input .form-control {
+        width: 200px!important;
+    }
+    
+    .InputValidityWrapper {
+        height: 74px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .InputValid {
+        color: green;
+        font-size: 30px;
+    }
+    
+    .InputInvalid {
+        color: red;
+        font-size: 30px;
+    }
 }

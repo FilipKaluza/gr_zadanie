@@ -17,10 +17,10 @@ const Layout = (props) => {
         <>
             <Navbar />
             <Row className="Layout" >
-                <Col span={14} >
+                <Col xs={24} md={14} >
                     {props.children}
                 </Col>
-                <Col span={10} className="DogImage">
+                <Col xs={24} md={10} className="DogImage">
                     <img src={Dog} alt="DogImage" />
                 </Col>
             </Row> 

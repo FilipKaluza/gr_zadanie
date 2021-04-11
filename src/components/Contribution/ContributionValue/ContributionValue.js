@@ -60,22 +60,20 @@ const ContributionValue = (props) => {
     return(
         <React.Fragment>
             <ContributionValueHeader />
-            <div className="ContributionItems">
-                <Row>
-                    <button className={amountOfContribution.value === 5 ? "ContributionButton ContributeItemSelected" : "ContributionButton"} onClick={contribute_5} > 5€ </button>
-                    <button className={amountOfContribution.value === 10 ? "ContributionButton ContributeItemSelected" : "ContributionButton"} onClick={contribute_10}  > 10€ </button>
-                    <button className={amountOfContribution.value === 20 ? "ContributionButton ContributeItemSelected" : "ContributionButton"}  onClick={contribute_20}  > 20€ </button>
-                    <button className={amountOfContribution.value === 30 ? "ContributionButton ContributeItemSelected" : "ContributionButton"} onClick={contribute_30}  > 30€ </button>
-                    <button className={amountOfContribution.value === 50 ? "ContributionButton ContributeItemSelected" : "ContributionButton"}  onClick={contribute_50} > 50€ </button>
-                    <button className={amountOfContribution.value === 100 ? "ContributionButton ContributeItemSelected" : "ContributionButton"}  onClick={contribute_100}   > 100€ </button>
-                    <div className={customInputClasses.join(" ")} onClick={selectCustom} >
-                        <Row>
-                            <input value={ amountOfContribution.customInputTouched ? amountOfContribution.value : undefined } placeholder="______" onChange={(e) => customChangeHandler(e)}  /> 
-                            <p> € </p>
-                        </Row>
-                    </div>
-                </Row>
-            </div>
+            <Row className="ContributionItems" >
+                <button className={amountOfContribution.value === 5 ? "ContributionButton ContributeItemSelected" : "ContributionButton"} onClick={contribute_5} > 5€ </button>
+                <button className={amountOfContribution.value === 10 ? "ContributionButton ContributeItemSelected" : "ContributionButton"} onClick={contribute_10}  > 10€ </button>
+                <button className={amountOfContribution.value === 20 ? "ContributionButton ContributeItemSelected" : "ContributionButton"}  onClick={contribute_20}  > 20€ </button>
+                <button className={amountOfContribution.value === 30 ? "ContributionButton ContributeItemSelected" : "ContributionButton"} onClick={contribute_30}  > 30€ </button>
+                <button className={amountOfContribution.value === 50 ? "ContributionButton ContributeItemSelected" : "ContributionButton"}  onClick={contribute_50} > 50€ </button>
+                <button className={amountOfContribution.value === 100 ? "ContributionButton ContributeItemSelected" : "ContributionButton"}  onClick={contribute_100}   > 100€ </button>
+                <div className={customInputClasses.join(" ")} onClick={selectCustom} >
+                    <Row>
+                        <input value={ amountOfContribution.customInputTouched ? amountOfContribution.value : undefined } placeholder="______" onChange={(e) => customChangeHandler(e)}  /> 
+                        <p> € </p>
+                    </Row>
+                </div>
+            </Row>
         </React.Fragment>
         
     );

@@ -29,6 +29,11 @@ const StyledButton = styled.button`
     line-height: 19px;
     cursor: ${ props => props.buttonProperties.notAllowed ? "not-allowed;" : "pointer;"}
     outline: none;
+    @media (max-width: 740px) {
+        width: 150px;
+        height: 80px;
+        margin: 0 25px;
+    }
     `
 
 const Button = (props) => {

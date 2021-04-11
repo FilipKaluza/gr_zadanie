@@ -23,17 +23,23 @@ const SelectSpecificShelterInput = (props) => {
         ];
     }
 
-    const customStyles = {
+    let customStyles = {
         container: (provided) => ({
             ...provided,
             height: "74px",
-            width: "100%"
+            width: "100%",
         }),
-        control: (provided ) => ({
+        control: (provided, props ) => ({
             ...provided,
             cursor: "pointer",
-            border: "2px solid #DFDFDF",
+            border: "1px solid #C4794F",
             borderRadius: "8px",
+            '&:hover': {
+                border: "2px solid #C4794F",
+            },
+            boxShadow: "none",
+            fontFamily: 'Public Sans'
+            
         }),
         indicatorsContainer: (provided) => ({
             ...provided,
@@ -57,7 +63,33 @@ const SelectSpecificShelterInput = (props) => {
             ...provided,
             backgroundColor: state.isSelected || state.isFocused ? "#CD8B65" : "fff",
             cursor: "pointer"
-        })
+        }),
+        placeholder: (provided) => ({
+            ...provided,
+            fontSize: "16px",
+            color: "#000"
+        }),
+        singleValue: (provided) => ({
+            ...provided,
+            fontSize: "16px",
+            color: "#000"
+        }),
+        menuList: (provided) => ({
+            ...provided,
+            fontSize: "16px",
+            color: "#000"
+        }),
+    }
+
+    if (window.screen.width <= 740) {
+        customStyles = {
+            ...customStyles,
+            container: (provided) => ({
+                ...provided,
+                height: "74px",
+                margin: "0 25px"
+            })
+        }
     }
 
     let selectedOption = null

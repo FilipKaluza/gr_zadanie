@@ -15,7 +15,7 @@ const PhoneInputComponent = (props) => {
             <Col span={20}>
                 <label > Telefónne číslo </label> (Nepovinné pole)
                 <div className="input">
-                    <PhoneInput value={props.value} country={"sk"} onlyCountries={["sk", "cz"]} onChange={props.changed} autoFormat={true} />
+                    <PhoneInput dropdownStyle={{ margin: "0"}} inputStyle={{ width: "225px", border: "none" }} value={props.value} country={"sk"} onlyCountries={["sk", "cz"]} onChange={props.changed} autoFormat={true} />
                 </div>
             </Col>
             {props.touched ?

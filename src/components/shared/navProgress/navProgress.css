@@ -5,3 +5,11 @@
 .NavProgress img {
     margin-right: 5px;
 }
+
+@media (max-width: 740px) {
+    .NavProgress {
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+    }
+}

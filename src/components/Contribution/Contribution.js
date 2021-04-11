@@ -76,6 +76,11 @@ const Contribution = (props) => {
         return <SelectSpecificShelterInput shelters={shelters} specificTypeOfContribution={typeOfContribution.specific} />
     }, [shelters, typeOfContribution])
 
+    let flexclass = {width: "100%", display: "flex", justifyContent: "flex-end" , margin: "72px 0 0 0" }
+    if(window.screen.width <= 740 ) {
+        flexclass = {width: "100%", display: "flex", justifyContent: "center" , margin: "72px 0 0 0" }
+    }
+
     return(
         <div className="ChooseContribution">
             <NavProgress />
@@ -83,7 +88,7 @@ const Contribution = (props) => {
             {contributionType}
             {selectSpecificShelterInput}
             <ContributionValue />
-            <div style={{ width: "100%", display: "flex", justifyContent: "flex-end", margin: "72px 0 0 0" }} >
+            <div style={flexclass} >
                 <Button url="/contactdata" buttonProperties={buttonProperties} />
             </div>     
         </div>

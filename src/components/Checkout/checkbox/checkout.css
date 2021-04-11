@@ -32,4 +32,14 @@
     position: relative;
     top: 2px;
     color: #000;
+    font-family: 'Public Sans';
+}
+
+@media (max-width: 740px) {
+    .checkbox {
+        margin: 0 25px;
+    }
+    .checkbox .label {
+        font-size: 12px;
+    }
 }
