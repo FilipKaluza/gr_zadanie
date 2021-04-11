@@ -17,8 +17,8 @@ const Checkout = () => {
 
     const [checked, setChecked] = useState(false);
 
-    const contributionState = useSelector(state => state.contributionReducer )
-    const shelterState = useSelector( state => state.shelterReducer )
+    const amoutOfContribution = useSelector(state => state.amountOfContributionReducer.value )
+    const typeOfContribution = useSelector( state => state.typeOfContributionReducer )
     const contactDataState = useSelector( state => state.contactDataReducer )
     const [ response, setResponse ] = useState(null)
     const [ error, setError ] = useState(null)
@@ -33,8 +33,8 @@ const Checkout = () => {
             "lastName": contactDataState.generalInputs.surname.value,
             "email": contactDataState.generalInputs.email.value,
             "phone": contactDataState.phone.value,
-            "value": contributionState.value,
-            "shelterID": shelterState.shelter_id
+            "value": amoutOfContribution,
+            "shelterID": typeOfContribution.shelter_id
         }
 
         axios.post("https://frontend-assignment-api.goodrequest.com/api/v1/shelters/contribute", body)
@@ -71,7 +71,7 @@ const Checkout = () => {
         <div className="Checkout">
             <NavProgress />
             <CheckoutMainHeader />
-            <DataToCheck contributionState={contributionState} shelterState={shelterState} contactDataState={contactDataState} />
+            <DataToCheck typeOfContribution={typeOfContribution} amoutOfContribution={amoutOfContribution} contactDataState={contactDataState} />
             <Checkbox 
                 checked={checked}
                 onChange={handlerCheckbox}

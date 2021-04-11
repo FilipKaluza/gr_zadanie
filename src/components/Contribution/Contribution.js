@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useReducer, useMemo, useCallback } from 'react';
+import React, { useEffect, useState, useMemo, useCallback } from 'react';
 import axios from "axios";
 
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import * as actions from "../store/actions/index";
 
 // import child components
 import NavProgress from "../shared/navProgress/navProgress";
@@ -12,29 +13,11 @@ import SelectSpecificShelterInput from "./selectSpecificShelterInput/selectSpeci
 import ContributionValue from "./ContributionValue/ContributionValue";
 import Button from "../UI/button/button";
 
-// import Redux actions
-import * as actions from "../store/actions/index";
-
-import { useDispatch } from "react-redux";
-
-
-const chooseTypeOfContribution = (state, action) => {
-    switch(action.type) {
-        case "SPECIFIC":
-            return { specific: true, wholeOrg: false}
-        case "WHOLE":
-            return { specific: false, wholeOrg: true}
-        default:
-            throw new Error("This never happen")
-    }
-}
-
-const ChooseContribution = (props) => {
+const Contribution = (props) => {
 
     const [ shelters, setShelters ] = useState()
-    const [ typeOfContribution, dispatchTypeOfContribution  ] = useReducer( chooseTypeOfContribution, { specific: false, wholeOrg: true } )
-    const value = useSelector( state => state.contributionReducer.value )
-    const specificShelter = useSelector( state => state.shelterReducer )
+    const amountOfContribution = useSelector( state => state.amountOfContributionReducer.value )
+    const typeOfContribution = useSelector(state => state.typeOfContributionReducer )
 
     const dispatch = useDispatch();
 
@@ -46,64 +29,54 @@ const ChooseContribution = (props) => {
                     sheltersAray.push(...res.data[key]) 
                 }
                 setShelters(sheltersAray)
+                localStorage.clear();
             })
             .catch(error => {
                 console.log(error)
             })
     }, [])
 
-    const selectShelterHandler = useCallback((event) => {
-        let indexOfSHelter = (shelters.findIndex(shelter => shelter.name === event.label))
-        if (indexOfSHelter === -1) {
-            indexOfSHelter = undefined;
-        } // this is helper function, if user have to choose specific shler, he choose and after that he cancel his choice, shelter_id become -1 insteal undefined, which cause Pokračovať Enabled, small bug fix
-        dispatch(actions.set_shelter(indexOfSHelter, event.label ))
-    }, [shelters, dispatch]);
 
+    let buttonProperties = {
+        className: "Disabled",
+        notAllowed: true,
+        value: "Pokračovať"
+    }
 
-    const selectSpecificContribution = () => {
-        dispatchTypeOfContribution( {type: "SPECIFIC"} )
-    };
-
-    const selectWholeOrgContribution = () => {
-        dispatchTypeOfContribution( {type: "WHOLE"} )
-    };
-
-    let buttonProperties = useMemo(() => {
-        let buttonProperties = {
-            className: "Disabled",
-            disabled: true,
-            value: "Pokračovať"
+    if (typeOfContribution.specific && typeOfContribution.shelter_id && amountOfContribution) {
+        buttonProperties = {
+            ...buttonProperties,
+            className: "Enabled",
+            notAllowed: false
         }
-    
-        if (typeOfContribution.specific && specificShelter.shelter_id && value) {
-            buttonProperties = {
-                ...buttonProperties,
-                className: "Enabled",
-                disabled: false
-            }
+    }
+
+    if (typeOfContribution.wholeOrg && amountOfContribution) {
+        buttonProperties = {
+            ...buttonProperties,
+            className: "Enabled",
+            notAllowed: false
         }
-    
-        if (typeOfContribution.wholeOrg && value) {
-            buttonProperties = {
-                ...buttonProperties,
-                className: "Enabled",
-                disabled: false
-            }
-        }
-        return buttonProperties
-    }, [typeOfContribution, specificShelter.shelter_id, value]) // this hooks help me avoid re-rendering buttonn when user just changing value
+    }
+
+    const contributeSpecificShelter = useCallback(() => {
+        dispatch(actions.contribute_specific_shelter())
+    }, [dispatch])
+
+    const contributeWholeOrg = useCallback(() => {
+        dispatch(actions.contribute_whole_org())
+    }, [dispatch])
 
     const contributionType = useMemo(() => {
         return <ContributionType 
-        selectSpecificContribution={selectSpecificContribution} 
-        selectWholeOrgContribution={selectWholeOrgContribution}
+        selectSpecificContribution={contributeSpecificShelter} 
+        selectWholeOrgContribution={contributeWholeOrg}
         whole={typeOfContribution.wholeOrg} />
-    }, [typeOfContribution])
+    }, [typeOfContribution, contributeWholeOrg, contributeSpecificShelter])
 
     const selectSpecificShelterInput = useMemo(() => {
-        return <SelectSpecificShelterInput helters={shelters} changed={(e) => selectShelterHandler(e)} />
-    }, [ shelters, selectShelterHandler])
+        return <SelectSpecificShelterInput shelters={shelters} />
+    }, [shelters])
 
     return(
         <div className="ChooseContribution">
@@ -120,4 +93,4 @@ const ChooseContribution = (props) => {
     );
 }
 
-export default ChooseContribution;
+export default Contribution;

@@ -7,8 +7,10 @@ export const SELECT_50 = "SELECT_50";
 export const SELECT_100 = "SELECT_100";
 export const SELECTED_BY_USER = "SELECT_BY_USER";
 
-// actionType for ShleterIdReducer
-export const SET_SHELTER_ID = "SET_SHELTER_ID";
+// actionType for ShleterReducer
+export const CONTRIBUTE_WWHOLE_ORG = "CONTRIBUTE_WHOLE_ORG";
+export const CONTRIBUTE_SPECIFIC_SHELTER = "CONTRIBUTE_SPECIFIC_SHELTER";
+export const SET_SHELTER = "SET_SHELTER";
 
 // actionTypes fro ContactDataReducer
 export const UPDATE_GEN_INPUT = "UPDATE_GEN_INPUT";

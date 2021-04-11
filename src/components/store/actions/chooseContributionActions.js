@@ -45,6 +45,7 @@ export const select_100 = () => {
 export const select_by_user = (value) => {
     return {
         type: actionTypes.SELECTED_BY_USER,
-        value: value
+        value: value,
+        touched: true
     }
 }

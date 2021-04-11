@@ -57,32 +57,33 @@ const ContactData = (props) => {
                 isValid={formElement.config.valid}
                 touched={formElement.config.touched}
                 label={formElement.config.elementConfig.label}
-                required={formElement.config.validation.required} /> 
+                required={formElement.config.validation.required}
+                value={formElement.config.value} /> 
     ));
 
     const buttonBackProperties = {
         className: "Back",
         value: "Späť",
-        disabled: false
+        notAllowed: false
     }
 
 
     let continueBtnProperties = {
         className: "Disabled",
         value: "Pokračovať",
-        disabled: true
+        notAllowed: true
     }
 
     if (contactState.name.valid && contactState.email.valid && contactState.surname.valid) {
         continueBtnProperties = {
             ...continueBtnProperties,
             className: "Enabled",
-            disabled: false
+            notAllowed: false
         }
     }
     
     const phoneInput = useMemo(() => {
-        return <PhoneInput changed={value => phoneChangeHandler({value})}  isValid={phoneState.valid} touched={phoneState.touched} />
+        return <PhoneInput changed={value => phoneChangeHandler({value})} value={phoneState.value} isValid={phoneState.valid} touched={phoneState.touched} />
     }, [phoneState, phoneChangeHandler])
 
     return(

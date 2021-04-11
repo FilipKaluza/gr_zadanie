@@ -1,9 +1,16 @@
-import React  from 'react';
+import React from 'react';
+
+import { useDispatch, useSelector } from "react-redux";
+
+import * as actions from "../../store/actions/index";
 
 import Select from "react-select";
 
-const selectSpecificShelterInput = (props) => {
+const SelectSpecificShelterInput = (props) => {
 
+    const dispatchSelectSheler = useDispatch();
+    const selectedShelter = useSelector(state => state.typeOfContributionReducer.selectedShelter)
+    
     let options = "Načítavam údaje"
     if (props.shelters) {
         options = [
@@ -50,11 +57,23 @@ const selectSpecificShelterInput = (props) => {
         })
     }
 
+    let selectedOption = null
+    if (selectedShelter) {
+        selectedOption = { value: selectedShelter, label: selectedShelter }
+    }
+    
+
+    const selectShelterHandler = (selectedOption) => {
+        let indexOfSHelter = (props.shelters.findIndex(shelter => shelter.name === selectedOption.label))
+        if (indexOfSHelter === -1) {
+            indexOfSHelter = undefined;
+        } // this is helper function, if user have to choose specific shler, he choose and after that he cancel his choice, shelter_id become -1 insteal undefined, which cause Pokračovať Enabled, small bug fix
+        dispatchSelectSheler(actions.set_shelter(indexOfSHelter, selectedOption.label ))
+    };
+
     return(
-        <>
-            <Select  styles={customStyles} options={options[0]} onChange={props.changed} placeholder="Vyberte útulok zo zoznamu" />
-        </>
+        <Select value={selectedOption} styles={customStyles} options={options[0]} onChange={selectShelterHandler} placeholder="Vyberte útulok zo zoznamu" />
     )
 };
 
-export default selectSpecificShelterInput;
+export default SelectSpecificShelterInput;

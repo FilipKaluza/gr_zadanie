@@ -27,6 +27,7 @@
     border: none;
     width: 50px;
     outline: none;
+    cursor: pointer;
 }
 
 .ContributionInput p {
