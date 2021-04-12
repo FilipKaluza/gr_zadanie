@@ -61,27 +61,33 @@ const ContactData = (props) => {
                 value={formElement.config.value} /> 
     ));
 
-    const buttonBackProperties = {
-        className: "Back",
-        value: "Späť",
-        notAllowed: false
-    }
-
-
-    let continueBtnProperties = {
-        className: "Disabled",
-        value: "Pokračovať",
-        notAllowed: true
-    }
-
-    if (contactState.name.valid && contactState.email.valid && contactState.surname.valid) {
-        continueBtnProperties = {
-            ...continueBtnProperties,
-            className: "Enabled",
+    const buttonBackProperties = useMemo(() => {
+        return {
+            className: "Back",
+            value: "Späť",
             notAllowed: false
         }
-    }
-    
+    }, [])
+
+    const continueBtnProperties = useMemo(() => {
+        let continueBtnProperties = null;
+        if (contactState.name.valid && contactState.email.valid && contactState.surname.valid) {
+            continueBtnProperties = {
+                value: "Pokračovať",
+                className: "Enabled",
+                notAllowed: false
+            }
+        } else {
+            continueBtnProperties = {
+                className: "Disabled",
+                value: "Pokračovať",
+                notAllowed: true
+            }
+        }
+        return continueBtnProperties
+    }, [contactState.name.valid, contactState.email.valid, contactState.surname.valid])
+
+
     const phoneInput = useMemo(() => {
         return <PhoneInput changed={value => phoneChangeHandler({value})} value={phoneState.value} isValid={phoneState.valid} touched={phoneState.touched} />
     }, [phoneState, phoneChangeHandler])
