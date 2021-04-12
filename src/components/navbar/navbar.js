@@ -4,7 +4,7 @@ import FBICon from "../../assets/images/FB.svg"
 import IGIcon from "../../assets/images/IG.svg";
 
 // import css
-import "./navbar.css";
+import "./navbar.scss";
 
 const navbar = () => {
 

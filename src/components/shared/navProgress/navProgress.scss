@@ -1,3 +1,5 @@
+@import "mixins.scss";
+
 .NavProgress {
     width: 100%;
 }
@@ -8,8 +10,7 @@
 
 @media (max-width: 740px) {
     .NavProgress {
+        @include flex(center);
         width: 100vw;
-        display: flex;
-        justify-content: center;
     }
 }

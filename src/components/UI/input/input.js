@@ -6,7 +6,7 @@ import Col from "antd/lib/col";
 // import icons
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 
-import "./input.css";
+import "./input.scss";
 
 const input = (props) => {
 

@@ -1,0 +1,11 @@
+@mixin flex($justify) {
+    display: flex;
+    justify-content: $justify;
+    align-items: center;
+}
+
+@mixin disabled {
+    cursor: not-allowed;
+    background: #9F9F9F;;
+    box-shadow: none;
+}

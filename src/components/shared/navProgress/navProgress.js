@@ -4,7 +4,7 @@ import NavLine from "../../../assets/images/NavIndicatorLine.svg";
 import NavLineActive from "../../../assets/images/NavProgressActive.svg";
 
 // import css
-import "./navProgress.css";
+import "./navProgress.scss";
 
 const NavProgress = (props) => {
 

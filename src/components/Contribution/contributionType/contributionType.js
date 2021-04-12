@@ -7,7 +7,7 @@ import Specific from "../../../assets/images/Specific.svg";
 import WholeOrganisation from "../../../assets/images/WholeOrganisation.svg";
 
 // import css
-import "./contributionType.css";
+import "./contributionType.scss";
 
 const ContributionType = (props) => {
 

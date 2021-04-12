@@ -1,6 +1,6 @@
 import React from 'react';
 
-import "./checkout.css";
+import "./checkout.scss";
 
 import CheckboxIndicator from "../../../assets/images/custom_checkbox_indicator.svg";
 

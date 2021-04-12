@@ -12,7 +12,7 @@ import Checkbox from "./checkbox/checkbox";
 import Button from "../UI/button/button";
 import { HeartOutlined, FrownOutlined } from '@ant-design/icons';
 
-import "./Checkout.css";
+import "./Checkout.scss";
 
 const Checkout = () => {
 

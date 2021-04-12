@@ -11,7 +11,7 @@ import * as actions from "../../store/actions/index";
 import Row from "antd/lib/row";
 
 // import css
-import "./ContributionValue.css";
+import "./ContributionValue.scss";
 
 
 const ContributionValue = (props) => {

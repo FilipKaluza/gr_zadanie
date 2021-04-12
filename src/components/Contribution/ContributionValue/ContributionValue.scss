@@ -1,10 +1,11 @@
+@import "variables.scss";
+@import "mixins.scss";
 
 .ContributionButton, .ContributionInput {
     width: 65px;
     height: 65px;
-    background: #FFFFFF;
+    background-color: #fff;
     border: 1px solid #DFDFDF;
-    box-sizing: border-box;
     border-radius: 8px;
     margin-right: 7px;
     cursor: pointer;
@@ -13,16 +14,14 @@
     font-size: 16px;
     line-height: 21px;
     color: #2F2F2F;
-    font-family: 'Public Sans';
+    font-family: $mainFont;
 }
 
 .ContributionInput {
+    @include flex(center);
     width: 150px;
     height: 65px;
     margin-right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     cursor: pointer;
 }
 
@@ -35,27 +34,26 @@
 }
 
 .ContributionInput p {
-    margin: 0;
+    @include flex(center);
     font-size: 16px;
     font-weight: 800;
+    margin: 0;
 }
 
 .ContributeItemSelected {
-    background: linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%)!important;
+    background: $mainGradient;
     color: #fff;
     border: none;
 }
 
 .ContributeItemSelected input {
-    background: linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%)!important;
+    background: $mainGradient;
     color: #fff;
 }
 
 @media (max-width: 740px) {
     .ContributionItems{
-        width: 100%;
-        display: flex;
-        justify-content: center;
+        @include flex(center)
     }
 
     .ContributionButton {
@@ -84,13 +82,8 @@
         font-weight: 800;
     }
 
-    .ContributeItemSelected {
-        background: linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%)!important;
-        color: #fff;
-    }
-
-    .ContributeItemSelected input {
-        background: linear-gradient(115.41deg, #CD8A64 -1.77%, #C4794F 73.03%)!important;
+    .ContributeItemSelected, .ContributeItemSelected input {
+        background: $mainGradient;
         color: #fff;
     }
 }
