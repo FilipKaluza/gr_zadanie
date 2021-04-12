@@ -7,7 +7,7 @@ import Col from "antd/lib/col";
 import LogoImage from "../../assets/images/logoImage.svg";
 import LogoText from "../../assets/images/logoText.svg";
 
-import "./footer.css";
+import "./footer.scss";
 
 const footer = () => {
 

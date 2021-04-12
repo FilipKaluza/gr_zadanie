@@ -1,12 +1,14 @@
+@import "mixins.scss";
+@import "variables.scss";
+
 #Footer {
     margin: 130px auto 0px auto;
     border-top: 1px solid #CD8B65;
+    font-family: $mainFont;
 }
 
 #Footer .LogoFooter {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(center);
 }
 
 #Footer .LogoImage, #Footer .LogoText {

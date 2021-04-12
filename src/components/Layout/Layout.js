@@ -9,7 +9,7 @@ import Col from "antd/lib/col";
 import Dog from "../../assets/images/dog_screen.png"
 
 // import css
-import "./Layout.css";
+import "./Layout.scss";
 
 const Layout = (props) => {
 
