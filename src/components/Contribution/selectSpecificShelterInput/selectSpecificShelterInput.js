@@ -18,7 +18,7 @@ const SelectSpecificShelterInput = (props) => {
     if (props.shelters) {
         options = [
             props.shelters.map(shelter => {
-                return { label: shelter.name, value: shelter.name }
+                return { label: shelter.name, value: shelter.name, id: shelter.id }
             })
         ];
     }
@@ -99,11 +99,7 @@ const SelectSpecificShelterInput = (props) => {
     
 
     const selectShelterHandler = (selectedOption) => {
-        let indexOfSHelter = (props.shelters.findIndex(shelter => shelter.name === selectedOption.label))
-        if (indexOfSHelter === -1) {
-            indexOfSHelter = undefined;
-        } // this is helper function, if user have to choose specific shler, he choose and after that he cancel his choice, shelter_id become -1 insteal undefined, which cause Pokračovať Enabled, small bug fix
-        dispatchSelectSheler(actions.set_shelter(indexOfSHelter, selectedOption.label ))
+        dispatchSelectSheler(actions.set_shelter(selectedOption.id, selectedOption.label ))
     };
 
     return(
