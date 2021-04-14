@@ -15,6 +15,7 @@ import Button from "../UI/button/button";
 const Contribution = (props) => {
 
     const [ shelters, setShelters ] = useState()
+    const [ fetchErrorShelter, setFetchErrorShelters ] = useState(null)
     const amountOfContribution = useSelector( state => state.amountOfContributionReducer.value )
     const typeOfContribution = useSelector(state => state.typeOfContributionReducer )
 
@@ -23,14 +24,11 @@ const Contribution = (props) => {
     useEffect(() => {
         axios.get(`https://frontend-assignment-api.goodrequest.com/api/v1/shelters`)
             .then(res => {
-                let sheltersAray = [];
-                for ( let key in res.data) {
-                    sheltersAray.push(...res.data[key]) 
-                }
-                setShelters(sheltersAray)
+                const shelters = res.data["shelters"]
+                setShelters(shelters)
             })
             .catch(error => {
-                console.log(error)
+                setFetchErrorShelters("Nepodarilo sa načítať konkrétne útulky")
             })
     }, [])
 
@@ -69,8 +67,9 @@ const Contribution = (props) => {
         return <ContributionType 
         selectSpecificContribution={contributeSpecificShelter} 
         selectWholeOrgContribution={contributeWholeOrg}
-        whole={typeOfContribution.wholeOrg} />
-    }, [typeOfContribution, contributeWholeOrg, contributeSpecificShelter])
+        whole={typeOfContribution.wholeOrg}
+        error={fetchErrorShelter} />
+    }, [typeOfContribution, contributeWholeOrg, contributeSpecificShelter, fetchErrorShelter])
 
     const selectSpecificShelterInput = useMemo(() => {
         return <SelectSpecificShelterInput shelters={shelters} specificTypeOfContribution={typeOfContribution.specific} />
@@ -86,7 +85,7 @@ const Contribution = (props) => {
             <NavProgress />
             <MainHeader value="Vyberte si možnosť, ako chcete pomôcť" />
             {contributionType}
-            {selectSpecificShelterInput}
+            { fetchErrorShelter ? <h1 style={{ margin: "56px 0 0 0", fontFamily: "Public Sans"}}>  {fetchErrorShelter}  </h1>: selectSpecificShelterInput }
             <ContributionValue />
             <div style={flexclass} >
                 <Button url="/contactdata" buttonProperties={buttonProperties} />

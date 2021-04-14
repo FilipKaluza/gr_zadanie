@@ -53,6 +53,10 @@
     color: #fff!important;
 }
 
+.DisabledCard {
+    cursor: not-allowed;
+}
+
 @media (max-width: 740px) {
     .ContributionCards {
         margin: 0 25px;
