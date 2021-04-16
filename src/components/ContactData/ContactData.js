@@ -85,7 +85,7 @@ const ContactData = (props) => {
             }
         }
         return continueBtnProperties
-    }, [contactState.name.valid, contactState.email.valid, contactState.surname.valid])
+    }, [contactState.name.valid, contactState.email.valid, contactState.surname.valid]) // this element re-create only when specific input validity change, it's avoid on re-creating button on every render
 
 
     const phoneInput = useMemo(() => {

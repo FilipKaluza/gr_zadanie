@@ -7,8 +7,8 @@ import axios from "axios";
 // import child components
 import NavProgress from "../shared/navProgress/navProgress";
 import MainHeader from "../shared/mainHeader/mainHeader";
-import DataToCheck from "./Summary/Summary";
-import Checkbox from "./Checkbox/Checkbox";
+import Summary from "./Summary/Summary";
+import { Checkbox } from 'antd';
 import Button from "../UI/button/button";
 import { HeartOutlined, FrownOutlined } from '@ant-design/icons';
 
@@ -22,7 +22,7 @@ const Checkout = () => {
     const [ response, setResponse ] = useState(null)
     const [ error, setError ] = useState(null)
 
-    const handlerCheckbox = () => {
+    const checboxHandler = () => {
         setChecked(!checked)
     }
 
@@ -70,12 +70,8 @@ const Checkout = () => {
         <div className="Checkout">
             <NavProgress />
             <MainHeader value="Skontrolujte si zadané údaje" />
-            <DataToCheck typeOfContribution={typeOfContribution} amoutOfContribution={amoutOfContribution} contactDataState={contactDataState} />
-            <Checkbox 
-                checked={checked}
-                onChange={handlerCheckbox}
-                label={"Súhlasím so spracovaním mojich osobných údajov"}
-                 />
+            <Summary typeOfContribution={typeOfContribution} amoutOfContribution={amoutOfContribution} contactDataState={contactDataState} />
+            <Checkbox onClick={checboxHandler} indeterminate={checked} checked={checked}  > Súhlasím so spracovaním mojich osobných údajov </Checkbox>
             <div style={{ display: "flex", justifyContent: "space-between", margin: "68px 0 0 0" }} >
                 <Button url="/contact" buttonProperties={buttonBackProperties} />
                 <button className={sendButton.className} disabled={sendButton.disabled} onClick={sendForm} > {sendButton.value} </button>
