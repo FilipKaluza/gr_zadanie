@@ -7,12 +7,10 @@ import axios from "axios";
 // import child components
 import NavProgress from "../shared/navProgress/navProgress";
 import MainHeader from "../shared/mainHeader/mainHeader";
-import DataToCheck from "./dataToCheck/dataToCheck";
-import Checkbox from "./checkbox/checkbox";
+import DataToCheck from "./Summary/Summary";
+import Checkbox from "./Checkbox/Checkbox";
 import Button from "../UI/button/button";
 import { HeartOutlined, FrownOutlined } from '@ant-design/icons';
-
-import "./Checkout.scss";
 
 const Checkout = () => {
 

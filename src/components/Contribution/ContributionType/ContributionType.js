@@ -6,12 +6,8 @@ import Row from "antd/lib/row";
 import { ReactComponent as Specific } from "../../../assets/images/specific.svg";
 import { ReactComponent as WholeOrganisation } from "../../../assets/images/wholeOrganisation.svg";
 
-// import css
-import "./contributionType.scss";
-
 const ContributionType = (props) => {
 
-    console.log(props.error)
     let cardClasses = {
         Specific: {
             Card: ["Card Specific CardActive"],

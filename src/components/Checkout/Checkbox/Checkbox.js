@@ -1,7 +1,5 @@
 import React from 'react';
 
-import "./checkout.scss";
-
 import { ReactComponent as CheckboxIndicator} from "../../../assets/images/customCheckboxIndicator.svg";
 
 export default function Chceckbox({checked, onChange, label}) {

@@ -3,9 +3,6 @@ import React from 'react';
 import { ReactComponent as NavLine} from "../../../assets/images/navProgressLine.svg";
 import { ReactComponent as NavLineActive} from "../../../assets/images/navProgressActiveLine.svg";
 
-// import css
-import "./navProgress.scss";
-
 const NavProgress = (props) => {
 
     let actualUrl = window.location.pathname

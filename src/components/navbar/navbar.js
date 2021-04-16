@@ -3,9 +3,6 @@ import React from 'react';
 import { ReactComponent as FbIcon } from "../../assets/images/fbIcon.svg";
 import { ReactComponent as IgIcon } from "../../assets/images/igIcon.svg";
 
-// import css
-import "./navbar.scss";
-
 const navbar = () => {
 
     return(

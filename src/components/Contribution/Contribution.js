@@ -7,8 +7,8 @@ import * as actions from "../store/actions/index";
 // import child components
 import NavProgress from "../shared/navProgress/navProgress";
 import MainHeader from "../shared/mainHeader/mainHeader";
-import ContributionType from "./contributionType/contributionType";
-import SelectSpecificShelterInput from "./selectSpecificShelterInput/selectSpecificShelterInput";
+import ContributionType from "./ContributionType/ContributionType";
+import SelectSpecificShelterInput from "./SelectSpecificShelterInput/SelectSpecificShelterInput";
 import ContributionValue from "./ContributionValue/ContributionValue";
 import Button from "../UI/button/button";
 

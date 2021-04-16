@@ -1,8 +1,7 @@
 import React from 'react';
 
 // import child components
-import SelectSpecificShelterInputHeader from "./selectSpecificShelterInputHeader/selectSpecificShelterInputHeader";
-
+import SelectSpecificShelterInputHeader from "./SelectSpecificHeader/SelectSpecificHeader";
 import { useDispatch, useSelector } from "react-redux";
 
 import * as actions from "../../store/actions/index";

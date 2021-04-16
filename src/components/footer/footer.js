@@ -7,8 +7,6 @@ import Col from "antd/lib/col";
 import { ReactComponent as LogoImage} from "../../assets/images/logoImage.svg";
 import { ReactComponent as LogoText} from "../../assets/images/logoText.svg";
 
-import "./footer.scss";
-
 const footer = () => {
 
     return(
