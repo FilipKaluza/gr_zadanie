@@ -1,0 +1,81 @@
+@import "mixins.scss";
+@import "variables.scss";
+
+.ant-select {
+    width: 100%;
+    height: 74px;
+    border: none;
+    font-family: $mainFont;
+}
+
+.ant-select, .ant-select-single, .ant-select-show-arrow {
+    position: relative;
+    height: 70px;
+    background-color: none;
+    border: 2px solid $inputColor;
+    border-radius: 8px; 
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.ant-select:hover, .ant-select-single:hover, .ant-select-show-arrow:hover {
+    border: 2px solid #000;
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    @include flex(center);
+    position: relative;
+    height: 70px;
+    background-color: transparent;
+    border: none;
+    border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.ant-select-focused:not(.ant-select-disabled).ant-select:not(.ant-select-customize-input) .ant-select-selector {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 66px;
+    border-radius: 8px;
+    box-shadow: none;
+}
+
+.ant-select-arrow {
+    top: 50%;
+    right: 20px;
+    width: 16px;
+    height: 16px;
+    margin-top: -6px;
+    color: #000;
+    line-height: 1;
+    text-align: center;
+    pointer-events: none;
+}
+
+.anticon-down {
+    color: #000;
+    font-size: 16px;
+}
+
+.ant-select-item {
+    position: relative;
+    display: block;
+    min-height: 32px;
+    padding: 5px 12px;
+    color: #000;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+    color: rgba(0, 0, 0, 0.85);
+    font-weight: 600;
+    background-color: #F3E2D9;
+}
+
+.ant-select-item:hover {
+    background-color: $inputColor;
+}

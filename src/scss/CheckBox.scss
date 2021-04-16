@@ -20,13 +20,13 @@
 }
 
 .ant-checkbox:hover .ant-checkbox-inner {
-    border: 2px solid #CD8B65!important;
+    border: 2px solid $inputColor!important;
     border-radius: 8px!important;
 }
 
 .ant-checkbox-checked .ant-checkbox-inner {
     background-color: transparent;
-    border: 2px solid #CD8B65!important;
+    border: 2px solid $inputColor!important;
 }
 
 .ant-checkbox-checked::after {
@@ -39,7 +39,7 @@
     height: 17px;
     width: 8px;
     margin: 0 7px;
-    border: 2px solid #AB7455;
+    border: 2px solid $inputColor;
     background-color: #fff;
     border-top: 0;
     border-left: 0;
