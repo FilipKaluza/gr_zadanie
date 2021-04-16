@@ -15,7 +15,7 @@ const App = () => {
     <div className="App">
         <Layout>
           <Route path="/" exact component={Contribution} />
-          <Route path="/contactdata" component={ContactData} />
+          <Route path="/contact" component={ContactData} />
           <Route path="/checkout" component={Checkout} />
         </Layout>
     </div>
@@ -23,3 +23,4 @@ const App = () => {
 };
 
 export default App;
+

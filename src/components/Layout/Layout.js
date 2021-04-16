@@ -6,7 +6,7 @@ import Footer from "../footer/footer";
 import Row from "antd/lib/row"
 import Col from "antd/lib/col";
 
-import Dog from "../../assets/images/dog_screen.png"
+import Dog from "../../assets/images/dogImage.png";
 
 // import css
 import "./Layout.scss";

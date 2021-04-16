@@ -1,7 +1,7 @@
 import React from 'react';
 
-import FBICon from "../../assets/images/FB.svg"
-import IGIcon from "../../assets/images/IG.svg";
+import { ReactComponent as FbIcon } from "../../assets/images/fbIcon.svg";
+import { ReactComponent as IgIcon } from "../../assets/images/igIcon.svg";
 
 // import css
 import "./navbar.scss";
@@ -13,10 +13,10 @@ const navbar = () => {
             <p className="NavDes"> Nadácia Good Boy</p>
             <div className="SocSites" >
                 <div className="FBIcon">
-                    <img  src={FBICon} alt="FBIcon" />
+                    <FbIcon />
                 </div>
                 <div className="IGIcon" >
-                    <img  src={IGIcon} alt="IGIcon" />
+                    <IgIcon  />
                 </div>
             </div>
         </div>

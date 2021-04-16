@@ -88,7 +88,7 @@ const Contribution = (props) => {
             { fetchErrorShelter ? <h1 style={{ margin: "56px 0 0 0", fontFamily: "Public Sans"}}>  {fetchErrorShelter}  </h1>: selectSpecificShelterInput }
             <ContributionValue />
             <div style={flexclass} >
-                <Button url="/contactdata" buttonProperties={buttonProperties} />
+                <Button url="/contact" buttonProperties={buttonProperties} />
             </div>     
         </div>
     );

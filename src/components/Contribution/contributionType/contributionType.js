@@ -3,8 +3,8 @@ import React from 'react';
 import Row from "antd/lib/row";
 
 // import images
-import Specific from "../../../assets/images/Specific.svg";
-import WholeOrganisation from "../../../assets/images/WholeOrganisation.svg";
+import { ReactComponent as Specific } from "../../../assets/images/specific.svg";
+import { ReactComponent as WholeOrganisation } from "../../../assets/images/wholeOrganisation.svg";
 
 // import css
 import "./contributionType.scss";
@@ -46,7 +46,7 @@ const ContributionType = (props) => {
     let specificCarddiv = 
     <div className={cardClasses.Specific.Card.join(" ")} onClick={ props.selectSpecificContribution } >
         <div className={cardClasses.Specific.CardImageWrapper.join(" ")} >
-            <img className="icon" src={Specific} alt="Specific" />
+            <Specific />
         </div>
         <h2 className={cardClasses.Specific.Description.join(" ")} > Chcem finančné prispieť konkrétnmeu útulku </h2>
     </div>
@@ -67,7 +67,7 @@ const ContributionType = (props) => {
         specificCarddiv = 
         <div className={cardClasses.Specific.Card.join(" ")}  >
             <div className={cardClasses.Specific.CardImageWrapper.join(" ")} >
-                <img className="icon" src={Specific} alt="Specific" />
+                <Specific />
             </div>
             <h2 className={cardClasses.Specific.Description.join(" ")} > Chcem finančné prispieť konkrétnmeu útulku </h2>
         </div>
@@ -78,7 +78,7 @@ const ContributionType = (props) => {
             {specificCarddiv}
             <div className={cardClasses.WholeOrg.Card.join(" ")} onClick={props.selectWholeOrgContribution} >
                 <div className={cardClasses.WholeOrg.CardImageWrapper.join(" ")} >
-                    <img src={WholeOrganisation} alt="WholeOrganisation" />
+                    <WholeOrganisation />
                 </div>
                 <h2 className={cardClasses.WholeOrg.Description.join(" ")} > Chcem finančné prispieť celej nadácii </h2>
             </div>

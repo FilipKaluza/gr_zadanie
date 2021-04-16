@@ -79,7 +79,7 @@ const Checkout = () => {
                 label={"Súhlasím so spracovaním mojich osobných údajov"}
                  />
             <div style={{ display: "flex", justifyContent: "space-between", margin: "68px 0 0 0" }} >
-                <Button url="/contactdata" buttonProperties={buttonBackProperties} />
+                <Button url="/contact" buttonProperties={buttonBackProperties} />
                 <button className={sendButton.className} disabled={sendButton.disabled} onClick={sendForm} > {sendButton.value} </button>
             </div>
             { response ? <h1 className="responseMessage" > {response} <HeartOutlined /> </h1> : null}

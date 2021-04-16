@@ -1,7 +1,7 @@
 import React from 'react';
 
-import NavLine from "../../../assets/images/NavIndicatorLine.svg";
-import NavLineActive from "../../../assets/images/NavProgressActive.svg";
+import { ReactComponent as NavLine} from "../../../assets/images/navProgressLine.svg";
+import { ReactComponent as NavLineActive} from "../../../assets/images/navProgressActiveLine.svg";
 
 // import css
 import "./navProgress.scss";
@@ -13,9 +13,9 @@ const NavProgress = (props) => {
 
     return(
         <div className="NavProgress" >
-            <img src={ actualUrl === "/" ? NavLineActive : NavLine } alt="NavLine" />
-            <img src={ actualUrl === "/contactdata" ? NavLineActive : NavLine } alt="NavLine" />
-            <img src={ actualUrl === "/checkout" ? NavLineActive : NavLine } alt="NavLine" />
+            { actualUrl === "/" ? <NavLineActive /> : <NavLine />}
+            { actualUrl === "/contact" ? <NavLineActive /> : <NavLine />}
+            { actualUrl === "/checkout" ? <NavLineActive /> : <NavLine />} 
         </div>
     );
 };
