@@ -1,3 +1,3 @@
-export { select_5, select_10, select_20, select_30, select_50, select_100, select_by_user } from "./chooseContributionActions";
+export { select_by_user, select_contribute_with_button} from "./chooseContributionActions";
 export { set_shelter, contribute_specific_shelter, contribute_whole_org } from "./selectTypeOfContributionActions";
 export { update_input } from "./contactDataActions";

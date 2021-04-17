@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
+import classNames from 'classnames';
 
 // import child components
 import ContributionValueHeader from "./ContributionValueHeader/ContributionValueHeader";
@@ -16,56 +17,34 @@ const ContributionValue = (props) => {
 
     const dispatch = useDispatch();
 
-    const contribute_5 = () => {
-        dispatch(actions.select_5())
-    }
+    const contributionValues = [5, 10, 20, 30, 50, 100];
 
-    const contribute_10 = () => {
-        dispatch(actions.select_10())
-    }
-    const contribute_20 = () => {
-        dispatch(actions.select_20())
-    }
-    const contribute_30 = () => {
-        dispatch(actions.select_30())
-    }
-    const contribute_50 = () => {
-        dispatch(actions.select_50())
-    }
-    const contribute_100 = () => {
-        dispatch(actions.select_100())
+    let contributionButtons = contributionValues.map((item, index) => {
+        return <button key={index} value={item} className={classNames("ContributionButton", {"ContributeItemSelected": Number(amountOfContribution.value) === item && !amountOfContribution.customInputTouched} )} onClick={(e) => selectContributeWithBtn(e)} > {item}€ </button>
+    })
+
+
+    const selectContributeWithBtn = (event) => {
+        dispatch(actions.select_contribute_with_button(event.target.value));
     }
 
     const customChangeHandler = (event) => {
-        event.preventDefault();
         dispatch(actions.select_by_user(event.target.value))
     }
-
-
 
     const selectCustom = () => {
         dispatch(actions.select_by_user(undefined))
     } // special dispatch for adding a classes (see bellow) to a custom Input when the user clicks on Input
-
-    let customInputClasses = ["ContributionInput"]
-    if (amountOfContribution.customInputTouched) {
-        customInputClasses.push("ContributeItemSelected")
-    }
 
 
     return(
         <React.Fragment>
             <ContributionValueHeader />
             <Row className="ContributionItems" >
-                <button className={amountOfContribution.value === 5 ? "ContributionButton ContributeItemSelected" : "ContributionButton"} onClick={contribute_5} > 5€ </button>
-                <button className={amountOfContribution.value === 10 ? "ContributionButton ContributeItemSelected" : "ContributionButton"} onClick={contribute_10}  > 10€ </button>
-                <button className={amountOfContribution.value === 20 ? "ContributionButton ContributeItemSelected" : "ContributionButton"}  onClick={contribute_20}  > 20€ </button>
-                <button className={amountOfContribution.value === 30 ? "ContributionButton ContributeItemSelected" : "ContributionButton"} onClick={contribute_30}  > 30€ </button>
-                <button className={amountOfContribution.value === 50 ? "ContributionButton ContributeItemSelected" : "ContributionButton"}  onClick={contribute_50} > 50€ </button>
-                <button className={amountOfContribution.value === 100 ? "ContributionButton ContributeItemSelected" : "ContributionButton"}  onClick={contribute_100}   > 100€ </button>
-                <div className={customInputClasses.join(" ")} onClick={selectCustom} >
+                {contributionButtons}
+                <div className={classNames("ContributionInput", {"ContributeItemSelected" : amountOfContribution.customInputTouched})} onClick={selectCustom} >
                     <Row>
-                        <input value={ amountOfContribution.customInputTouched ? amountOfContribution.value : undefined } placeholder="______" onChange={(e) => customChangeHandler(e)}  /> 
+                        <input value={ amountOfContribution.customInputTouched ? amountOfContribution.value : "" } placeholder="______" onChange={(e) => customChangeHandler(e)}  /> 
                         <p> € </p>
                     </Row>
                 </div>
