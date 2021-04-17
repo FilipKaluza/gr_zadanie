@@ -16,14 +16,14 @@ export const fetchSheltersFailed = (error) => {
 }
 
 export const fetchShelters = () => {
-    return dispatch => {
-        axios.get(`https://frontend-assignment-api.goodrequest.com/api/v1/shelters`)
-        .then(res => {
-            const shelters = res.data["shelters"]
+    return async dispatch => {
+        try {
+            const response = await axios.get(`https://frontend-assignment-api.goodrequest.com/api/v1/shelters`)
+            const shelters = await response.data.shelters
             dispatch(fetchSheltersSuccess(shelters))
-        })
-        .catch(error => {
-            dispatch(fetchSheltersFailed(error))
-        })
+        } catch(err) {
+            dispatch(fetchSheltersFailed("Nepodarilo sa načítať útulky"))
+        }
+        
     };
-};
+}; 

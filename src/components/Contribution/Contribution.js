@@ -14,11 +14,9 @@ import Button from "../UI/button/button";
 import { Spin } from 'antd';
 
 const Contribution = (props) => {
-    console.log("CONTRIBUTION RENDERING")
 
     const state = useSelector(state => state.contributionReducer )
     const shelters = useSelector(state => state.fetchSheltersReducer )
-    console.log(shelters)
 
     const dispatch = useDispatch();
 
