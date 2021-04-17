@@ -3,49 +3,17 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
     generalInputs: {
         name: {
-            elementType: "input",
-            elementConfig: {
-                type: "text",
-                placeholder: "Zadajte Vaše meno",
-                label: "Meno"
-            },
             value: "",
-            validation: {
-                required: true,
-                minLength: 2,
-                maxLength: 20
-            },
             valid: false,
             touched: false
         },
         surname: {
-            elementType: "input",
-            elementConfig: {
-                type: "text",
-                placeholder: "Zadajte Vaše priezvisko",
-                label: "Vaše priezvisko"
-            },
             value: "",
-            validation: {
-                required: true,
-                minLength: 2,
-                maxLength: 30
-            },
             valid: false,
             touched: false
         },
         email: {
-            elementType: "input",
-            elementConfig: {
-                type: "email",
-                placeholder: "Zadajte Váš e-mail",
-                label: "E-mailová adresa"
-            },
             value: "",
-            validation: {
-                required: true,
-                email: true
-            },
             valid: false,
             touched: false
         }
@@ -65,15 +33,50 @@ const initialState = {
 
 const contactDataReducer = (state = initialState, action) => {
     switch(action.type) {
-        case actionTypes.UPDATE_GEN_INPUT:
+        case actionTypes.UPDATE_NAME:
             return {
                 ...state,
-                generalInputs: action.updatedInput
+                generalInputs: {
+                    ...state.generalInputs,
+                    name: {
+                        value: action.value,
+                        valid: action.valid,
+                        touched: true
+                    }
+                }
+            }
+        case actionTypes.UPDATE_SURNAME:
+            return {
+                ...state,
+                generalInputs: {
+                    ...state.generalInputs,
+                    surname: {
+                        value: action.value,
+                        valid: action.valid,
+                        touched: true
+                    }
+                }
+            }
+        case actionTypes.UPDATE_EMAIL:
+            return {
+                ...state,
+                generalInputs: {
+                    ...state.generalInputs,
+                    email: {
+                        value: action.value,
+                        valid: action.valid,
+                        touched: true
+                    }
+                }
             }
         case actionTypes.UPDATE_PHONE_INPUT:
             return {
                 ...state,
-                phone: action.updatedInput
+                phone: {
+                    value: action.value,
+                    valid: action.valid,
+                    touched: true
+                }
             }
         default:
             return state

@@ -13,5 +13,7 @@ export const CONTRIBUTE_SPECIFIC_SHELTER = "CONTRIBUTE_SPECIFIC_SHELTER";
 export const SET_SHELTER = "SET_SHELTER";
 
 // actionTypes fro ContactDataReducer
-export const UPDATE_GEN_INPUT = "UPDATE_GEN_INPUT";
+export const UPDATE_NAME = "UPDATE_NAME";
+export const UPDATE_SURNAME = "UPDATE_SURNAME";
+export const UPDATE_EMAIL= "UPDATE_EMAIL";
 export const UPDATE_PHONE_INPUT = "UPDATE_PHONE_INPUT";
