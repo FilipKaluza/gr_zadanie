@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useMemo, useCallback } from 'react';
-import axios from "axios";
+import React, { useEffect, useMemo, useCallback } from 'react';
 
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../store/actions/index";
@@ -12,25 +11,20 @@ import SelectSpecificShelterInput from "./SelectSpecificShelterInput/SelectSpeci
 import ContributionValue from "./ContributionValue/ContributionValue";
 import Button from "../UI/button/button";
 
+import { Spin } from 'antd';
+
 const Contribution = (props) => {
     console.log("CONTRIBUTION RENDERING")
 
-    const [ shelters, setShelters ] = useState()
-    const [ fetchErrorShelter, setFetchErrorShelters ] = useState(null)
     const state = useSelector(state => state.contributionReducer )
+    const shelters = useSelector(state => state.fetchSheltersReducer )
+    console.log(shelters)
 
     const dispatch = useDispatch();
 
     useEffect(() => {
-        axios.get(`https://frontend-assignment-api.goodrequest.com/api/v1/shelters`)
-            .then(res => {
-                const shelters = res.data["shelters"]
-                setShelters(shelters)
-            })
-            .catch(error => {
-                setFetchErrorShelters("Nepodarilo sa načítať konkrétne útulky")
-            })
-    }, [])
+        dispatch(actions.fetchShelters())
+    }, [dispatch])
 
 
     let buttonProperties = {
@@ -64,7 +58,7 @@ const Contribution = (props) => {
     }, [dispatch])
 
     const selectSpecificShelterInput = useMemo(() => {
-        return <SelectSpecificShelterInput shelters={shelters} specificTypeOfContribution={state.specific} />
+        return shelters.loading ? <div className="Loading"> <p> Načítavam útulky </p> <Spin style={{fill: "#000000"}}  /> </div>: <SelectSpecificShelterInput shelters={shelters.shelters} specificTypeOfContribution={state.specific} />
     }, [shelters, state.specific])
 
     const contributionValue = useMemo(() => {
@@ -79,8 +73,8 @@ const Contribution = (props) => {
                 selectSpecificContribution={contributeSpecificShelter} 
                 selectWholeOrgContribution={contributeWholeOrg}
                 whole={state.wholeOrg}
-                error={fetchErrorShelter} />
-            { fetchErrorShelter ? <h1 style={{ margin: "56px 0 0 0", fontFamily: "Public Sans"}}>  {fetchErrorShelter}  </h1>: selectSpecificShelterInput }
+                error={shelters.error} />
+            { shelters.error ? <h1 style={{ margin: "56px 0 0 0", fontFamily: "Public Sans"}}>  {shelters.error}  </h1>: selectSpecificShelterInput }
             {contributionValue}
             <div className="ContributionBtn">
                 <Button url="/contact" buttonProperties={buttonProperties} disabled={!continueCondition} />

@@ -4,7 +4,8 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider  } from "react-redux";
-import { createStore, compose, combineReducers } from 'redux';
+import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
+import thunk from "redux-thunk";
 
 // import reducer 
 import contributionReducer from "./components/store/reducers/contributionReducer";
@@ -20,7 +21,7 @@ const rootReducer = combineReducers({
   fetchSheltersReducer: fetchSheltersReducer
 })
 
-const store = createStore(rootReducer, composeEnhancers())
+const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
     <BrowserRouter>

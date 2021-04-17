@@ -1,4 +1,5 @@
 @import "mixins.scss";
+@import "variables.scss";
 
 .ContributionBtn {
     @include flex(center);
@@ -10,4 +11,19 @@
     .ContributionBtn {
         justify-content: center;
     }
+}
+
+.Loading {
+    display: inline-flex;
+    margin-top: 72px;
+}
+
+.Loading p {
+    margin-right: 10px;
+    font-size: 14px;
+    font-family: $mainFont;
+}
+
+.ant-spin-dot-item {
+    background-color: $inputColor;
 }
