@@ -5,7 +5,7 @@ import * as actions from "../store/actions/index";
 
 // import child components
 import NavProgress from "../shared/navProgress/navProgress";
-import MainHeader from "../shared/mainHeader/mainHeader";
+import {StyledMainHeader} from "../shared/StyledComponents/StyledComponents";
 import ContributionType from "./ContributionType/ContributionType";
 import SelectSpecificShelterInput from "./SelectSpecificShelterInput/SelectSpecificShelterInput";
 import ContributionValue from "./ContributionValue/ContributionValue";
@@ -58,8 +58,8 @@ const Contribution = (props) => {
     }, [dispatch])
 
     const selectSpecificShelterInput = useMemo(() => {
-        return shelters.loading ? <div className="Loading"> <p> Načítavam útulky </p> <Spin style={{fill: "#000000"}}  /> </div>: <SelectSpecificShelterInput shelters={shelters.shelters} specificTypeOfContribution={state.specific} />
-    }, [shelters, state.specific])
+        return shelters.loading ? <div className="Loading"> <p> Načítavam útulky </p> <Spin style={{fill: "#000000"}}  /> </div>: <SelectSpecificShelterInput shelters={shelters.shelters} selectedShelter={state.selectedShelter} specificTypeOfContribution={state.specific} />
+    }, [shelters, state.specific, state.selectedShelter ])
 
     const contributionValue = useMemo(() => {
         return <ContributionValue amountOfContribution={state.value} specific={state.specific} customInputTouched={state.customInputTouched} />
@@ -68,7 +68,7 @@ const Contribution = (props) => {
     return(
         <div className="ChooseContribution">
             <NavProgress />
-            <MainHeader value="Vyberte si možnosť, ako chcete pomôcť" />
+            <StyledMainHeader> Vyberte si možnosť, ako chcete pomôcť </StyledMainHeader>
             <ContributionType 
                 selectSpecificContribution={contributeSpecificShelter} 
                 selectWholeOrgContribution={contributeWholeOrg}

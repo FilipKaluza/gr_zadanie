@@ -1,7 +1,9 @@
 import React from 'react';
 
 // import child components
-import SelectSpecificShelterInputHeader from "./SelectSpecificHeader/SelectSpecificHeader";
+import { StyledSecondaryHeader } from "../../shared/StyledComponents/StyledComponents";
+
+
 import { useDispatch } from "react-redux";
 
 import * as actions from "../../store/actions/index";
@@ -19,7 +21,10 @@ const SelectSpecificShelterInput = (props) => {
 
     return(
         <>
-            <SelectSpecificShelterInputHeader value={ props.specificTypeOfContribution ? "Povinné pole" : "Nepovinné pole"} />
+            <div className="ChooseSpecific" style={{ display: "flex", justifyContent: "space-between", margin: "56px 0 0 0" }} >
+                <StyledSecondaryHeader > Najviac mi záleží na útulku </StyledSecondaryHeader>
+                <StyledSecondaryHeader > { props.specificTypeOfContribution ? "Povinné pole" : "Nepovinné pole"} </StyledSecondaryHeader>
+            </div>
             <Select placeholder="Vyberte si útulok zo zoznamu" value={props.selectedShelter} onChange={(value, object) => selectShelterHandler(value, object)}  > 
                 { props.shelters ? props.shelters.map(shelter => {
                     return (<Option key={shelter.id} id={shelter.id} value={shelter.name} >

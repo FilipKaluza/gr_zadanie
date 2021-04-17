@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import classNames from 'classnames';
 
 // import child components
-import SecondaryHeader from "../../shared/secondaryHeader/secondaryHeader";
+import { StyledSecondaryHeader } from "../../shared/StyledComponents/StyledComponents";
 
 // import reducer actions
 import * as actions from "../../store/actions/index";
@@ -38,8 +38,8 @@ const ContributionValue = (props) => {
     return(
         <React.Fragment>
              <div className="ContributionValueHeader" >
-                <SecondaryHeader value="Suma, ktorou chcem prispieť" /> 
-                <SecondaryHeader value="Povinné pole" />
+                <StyledSecondaryHeader > Suma, ktorou chcem prispieť </StyledSecondaryHeader>
+                <StyledSecondaryHeader > Povinné pole </StyledSecondaryHeader>
             </div>
             <Row className="ContributionItems" >
                 {contributionButtons}

@@ -1,25 +1,25 @@
 import React from 'react';
 
-import SecondaryHeader from "../../shared/secondaryHeader/secondaryHeader";
-import CheckoutParagraph from "../../shared/checkoutParagraph/checkoutParagraph";
+import {StyledSecondaryHeader} from "../../shared/StyledComponents/StyledComponents";
+import {StyledParagraph} from "../../shared/StyledComponents/StyledComponents";
 
 const Summary = (props) => {
     return(
         <React.Fragment>
-            <SecondaryHeader value= "Akou formou chcem pomôcť" />
-            <CheckoutParagraph value={ props.state.shelter_id ? "Chcem finančne prispieť konkrétnemu útulku" : "Chcem finančne prispieť celej nadácii" } />
+            <StyledSecondaryHeader> Akou formou chcem pomôcť" </StyledSecondaryHeader>
+            <StyledParagraph> {props.state.shelter_id ? "Chcem finančne prispieť konkrétnemu útulku" : "Chcem finančne prispieť celej nadácii"} </StyledParagraph>
 
-            <SecondaryHeader value="Najviac mi záleží na útulku" />
-            <CheckoutParagraph value={ props.state.selectedShelter ? props.state.selectedShelter: "Prispievam všetkým útulkom rovnomerne" } />
+            <StyledSecondaryHeader> Najviac mi záleží na útulku </StyledSecondaryHeader>
+            <StyledParagraph> { props.state.selectedShelter ? props.state.selectedShelter: "Prispievam všetkým útulkom rovnomerne" } </StyledParagraph>
 
-            <SecondaryHeader value="Suma, ktorou chcem prispieť" />
-            <CheckoutParagraph value={props.state.value + "€" } />
+            <StyledSecondaryHeader> Suma, ktorou chcem prispieť </StyledSecondaryHeader>
+            <StyledParagraph> {props.state.value + "€" } </StyledParagraph>
 
-            <SecondaryHeader value="E-mailová adresa" />
-            <CheckoutParagraph value={ props.state.generalInputs.email.value } />
+            <StyledSecondaryHeader> E-mailová adresa </StyledSecondaryHeader>
+            <StyledParagraph> { props.state.generalInputs.email.value } </StyledParagraph>
 
-            <SecondaryHeader value="Telefónne číslo" />
-            <CheckoutParagraph value={ props.state.phone.value ?  "+" + props.state.phone.value  : "-" } />
+            <StyledSecondaryHeader> Telefónne číslo </StyledSecondaryHeader>
+            <StyledParagraph> { props.state.phone.value ?  "+" + props.state.phone.value  : "-" } </StyledParagraph>
         </React.Fragment>
     );
        

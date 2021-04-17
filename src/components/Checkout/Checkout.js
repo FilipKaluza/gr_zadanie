@@ -6,7 +6,7 @@ import axios from "axios";
 
 // import child components
 import NavProgress from "../shared/navProgress/navProgress";
-import MainHeader from "../shared/mainHeader/mainHeader";
+import {StyledMainHeader} from "../shared/StyledComponents/StyledComponents";
 import Summary from "./Summary/Summary";
 import { Checkbox } from 'antd';
 import Button from "../UI/button/button";
@@ -66,7 +66,7 @@ const Checkout = () => {
     return(
         <div className="Checkout">
             <NavProgress />
-            <MainHeader value="Skontrolujte si zadané údaje" />
+            <StyledMainHeader> Skontrolujte si zadané údaje </StyledMainHeader>
             <Summary state={state} />
             <Checkbox onClick={checboxHandler} indeterminate={checked} checked={checked}  > Súhlasím so spracovaním mojich osobných údajov </Checkbox>
             <div style={{ display: "flex", justifyContent: "space-between", margin: "68px 0 0 0" }} >
