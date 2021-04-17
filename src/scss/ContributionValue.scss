@@ -1,6 +1,12 @@
 @import "variables.scss";
 @import "mixins.scss";
 
+.ContributionValueHeader {
+    @include flex(center);
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
 .ContributionButton, .ContributionInput {
     width: 65px;
     height: 65px;

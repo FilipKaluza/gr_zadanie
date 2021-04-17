@@ -45,7 +45,7 @@ const Button = (props) => {
     }
 
     return(
-        <StyledButton buttonProperties={props.buttonProperties}  disabled={props.buttonProperties.notAllowed} onClick={handleClick} > {props.buttonProperties.value} </StyledButton>
+        <StyledButton buttonProperties={props.buttonProperties}  disabled={props.disabled} onClick={handleClick} > {props.buttonProperties.value} </StyledButton>
     );
 
 } 

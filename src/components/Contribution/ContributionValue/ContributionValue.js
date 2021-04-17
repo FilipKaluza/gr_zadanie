@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import classNames from 'classnames';
 
 // import child components
-import ContributionValueHeader from "./ContributionValueHeader/ContributionValueHeader";
+import SecondaryHeader from "../../shared/secondaryHeader/secondaryHeader";
 
 // import reducer actions
 import * as actions from "../../store/actions/index";
@@ -39,7 +39,10 @@ const ContributionValue = (props) => {
 
     return(
         <React.Fragment>
-            <ContributionValueHeader />
+             <div className="ContributionValueHeader" >
+                <SecondaryHeader value="Suma, ktorou chcem prispieť" /> 
+                <SecondaryHeader value="Povinné pole" />
+            </div>
             <Row className="ContributionItems" >
                 {contributionButtons}
                 <div className={classNames("ContributionInput", {"ContributeItemSelected" : amountOfContribution.customInputTouched})} onClick={selectCustom} >

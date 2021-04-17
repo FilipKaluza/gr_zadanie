@@ -35,23 +35,23 @@ const Contribution = (props) => {
 
     let buttonProperties = {
         className: "Disabled",
-        notAllowed: true,
         value: "Pokračovať"
     }
 
-    if (typeOfContribution.specific && typeOfContribution.shelter_id && amountOfContribution) {
+    let continueCondition = typeOfContribution.specific ? typeOfContribution.shelter_id && amountOfContribution : amountOfContribution
+    if (continueCondition) {
+        continueCondition = true
         buttonProperties = {
             ...buttonProperties,
             className: "Enabled",
-            notAllowed: false
         }
     }
 
-    if (typeOfContribution.wholeOrg && amountOfContribution) {
+    if (continueCondition) {
+        continueCondition = true
         buttonProperties = {
             ...buttonProperties,
             className: "Enabled",
-            notAllowed: false
         }
     }
 
@@ -63,32 +63,23 @@ const Contribution = (props) => {
         dispatch(actions.contribute_whole_org())
     }, [dispatch])
 
-    const contributionType = useMemo(() => {
-        return <ContributionType 
-        selectSpecificContribution={contributeSpecificShelter} 
-        selectWholeOrgContribution={contributeWholeOrg}
-        whole={typeOfContribution.wholeOrg}
-        error={fetchErrorShelter} />
-    }, [typeOfContribution, contributeWholeOrg, contributeSpecificShelter, fetchErrorShelter])
-
     const selectSpecificShelterInput = useMemo(() => {
         return <SelectSpecificShelterInput shelters={shelters} specificTypeOfContribution={typeOfContribution.specific} />
     }, [shelters, typeOfContribution])
-
-    let flexclass = {width: "100%", display: "flex", justifyContent: "flex-end" , margin: "72px 0 0 0" }
-    if(window.screen.width <= 740 ) {
-        flexclass = {width: "100%", display: "flex", justifyContent: "center" , margin: "72px 0 0 0" }
-    }
 
     return(
         <div className="ChooseContribution">
             <NavProgress />
             <MainHeader value="Vyberte si možnosť, ako chcete pomôcť" />
-            {contributionType}
+            <ContributionType 
+                selectSpecificContribution={contributeSpecificShelter} 
+                selectWholeOrgContribution={contributeWholeOrg}
+                whole={typeOfContribution.wholeOrg}
+                error={fetchErrorShelter} />
             { fetchErrorShelter ? <h1 style={{ margin: "56px 0 0 0", fontFamily: "Public Sans"}}>  {fetchErrorShelter}  </h1>: selectSpecificShelterInput }
             <ContributionValue />
-            <div style={flexclass} >
-                <Button url="/contact" buttonProperties={buttonProperties} />
+            <div className="ContributionBtn">
+                <Button url="/contact" buttonProperties={buttonProperties} disabled={!continueCondition} />
             </div>     
         </div>
     );

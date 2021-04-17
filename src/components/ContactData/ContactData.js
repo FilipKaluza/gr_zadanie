@@ -93,23 +93,23 @@ const ContactData = (props) => {
         }
     }, [])
 
+    let continueCondition = contactState.name.valid && contactState.email.valid && contactState.surname.valid
+
     const continueBtnProperties = useMemo(() => {
         let continueBtnProperties = null;
-        if (contactState.name.valid && contactState.email.valid && contactState.surname.valid) {
+        if (continueCondition) {
             continueBtnProperties = {
                 value: "Pokračovať",
                 className: "Enabled",
-                notAllowed: false
             }
         } else {
             continueBtnProperties = {
                 className: "Disabled",
                 value: "Pokračovať",
-                notAllowed: true
             }
         }
         return continueBtnProperties
-    }, [contactState.name.valid, contactState.email.valid, contactState.surname.valid]) // this element re-create only when specific input validity change, it's avoid on re-creating button on every render
+    }, [continueCondition]) // this element re-create only when specific input validity change, it's avoid on re-creating button on every render
 
 
     const phoneInput = useMemo(() => {
@@ -125,7 +125,7 @@ const ContactData = (props) => {
             {phoneInput}
             <div style={{ display: "flex", justifyContent: "space-between", margin: "68px 0 0 0" }} >
                 <Button url="/" buttonProperties={buttonBackProperties} />
-                <Button url="/checkout" buttonProperties={continueBtnProperties} />
+                <Button url="/checkout" buttonProperties={continueBtnProperties} disabled={!continueCondition} />
             </div>
         </div>
     );

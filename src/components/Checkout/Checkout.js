@@ -61,7 +61,6 @@ const Checkout = () => {
     if (checked) {
         sendButton = {
             ...sendButton,
-            disabled: false,
             className: "Enabled"
         }
     }
@@ -74,7 +73,7 @@ const Checkout = () => {
             <Checkbox onClick={checboxHandler} indeterminate={checked} checked={checked}  > Súhlasím so spracovaním mojich osobných údajov </Checkbox>
             <div style={{ display: "flex", justifyContent: "space-between", margin: "68px 0 0 0" }} >
                 <Button url="/contact" buttonProperties={buttonBackProperties} />
-                <button className={sendButton.className} disabled={sendButton.disabled} onClick={sendForm} > {sendButton.value} </button>
+                <button className={sendButton.className} disabled={!checked} onClick={sendForm} > {sendButton.value} </button>
             </div>
             { response ? <h1 className="responseMessage" > {response} <HeartOutlined /> </h1> : null}
             { error ? <h1 className="errorMessage" > {error} <FrownOutlined /> </h1> : null}
