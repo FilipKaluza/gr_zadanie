@@ -7,9 +7,8 @@ import { Provider  } from "react-redux";
 import { createStore, compose, combineReducers } from 'redux';
 
 // import reducer 
-import amountOfContributionReducer from "./components/store/reducers/amoutOfContributionReducer";
-import typeOfContributionReducer from "./components/store/reducers/typeOfContributionReducer";
-import contactDataReducer from "./components/store/reducers/contactDataReducer";
+import contributionReducer from "./components/store/reducers/contributionReducer";
+import fetchSheltersReducer from "./components/store/reducers/fetchSheltersReducer";
 
 // import Router
 import { BrowserRouter } from "react-router-dom";
@@ -17,9 +16,8 @@ import { BrowserRouter } from "react-router-dom";
 const composeEnhancers = process.env.NODE_ENV === "development" ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__: null || compose; // for redux extension in development
 
 const rootReducer = combineReducers({
-  amountOfContributionReducer: amountOfContributionReducer,
-  typeOfContributionReducer: typeOfContributionReducer,
-  contactDataReducer: contactDataReducer
+  contributionReducer: contributionReducer,
+  fetchSheltersReducer: fetchSheltersReducer
 })
 
 const store = createStore(rootReducer, composeEnhancers())

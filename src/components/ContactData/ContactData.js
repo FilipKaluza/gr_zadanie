@@ -19,11 +19,11 @@ import checkValidity from "../utility/checkValidity";
 import validityCriteria from "../utility/validityCriteria";
 
 const ContactData = (props) => {
+    console.log("CONTACT DATA RENDERING")
 
-    const contactState = useSelector( state => state.contactDataReducer.generalInputs )
-    const phoneState = useSelector( state => state.contactDataReducer.phone )
+    const state = useSelector( state => state.contributionReducer )
     const dispatch = useDispatch();
-    console.log(contactState)
+    console.log("contactState")
 
     const inputChangedHandler = useCallback((event, inputIdentifier) => {
         let value = event.target.value
@@ -66,10 +66,10 @@ const ContactData = (props) => {
     }
 
     const formElementArray = [];
-    for (let key in contactState) {
+    for (let key in state.generalInputs) {
         formElementArray.push({
             id: key,
-            config: contactState[key]
+            config: state.generalInputs[key]
         });
     }
     
@@ -93,7 +93,7 @@ const ContactData = (props) => {
         }
     }, [])
 
-    let continueCondition = contactState.name.valid && contactState.email.valid && contactState.surname.valid
+    let continueCondition = state.generalInputs.name.valid && state.generalInputs.email.valid && state.generalInputs.surname.valid
 
     const continueBtnProperties = useMemo(() => {
         let continueBtnProperties = null;
@@ -113,8 +113,8 @@ const ContactData = (props) => {
 
 
     const phoneInput = useMemo(() => {
-        return <PhoneInput changed={value => phoneChangeHandler({value})} value={phoneState.value} isValid={phoneState.valid} touched={phoneState.touched} />
-    }, [phoneState, phoneChangeHandler])
+        return <PhoneInput changed={value => phoneChangeHandler({value})} value={state.phone.value} isValid={state.phone.valid} touched={state.phone.touched} />
+    }, [state.phone, phoneChangeHandler])
 
     return(
         <div className="ContactData" >

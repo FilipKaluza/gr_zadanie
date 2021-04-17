@@ -16,9 +16,7 @@ const Checkout = () => {
 
     const [checked, setChecked] = useState(false);
 
-    const amoutOfContribution = useSelector(state => state.amountOfContributionReducer.value )
-    const typeOfContribution = useSelector( state => state.typeOfContributionReducer )
-    const contactDataState = useSelector( state => state.contactDataReducer )
+    const state = useSelector(state => state.contributionReducer )
     const [ response, setResponse ] = useState(null)
     const [ error, setError ] = useState(null)
 
@@ -28,12 +26,12 @@ const Checkout = () => {
 
     const sendForm = () => {
         const body = {
-            "firstName": contactDataState.generalInputs.name.value,
-            "lastName": contactDataState.generalInputs.surname.value,
-            "email": contactDataState.generalInputs.email.value,
-            "phone": contactDataState.phone.value,
-            "value": amoutOfContribution,
-            "shelterID": typeOfContribution.shelter_id
+            "firstName": state.generalInputs.name.value,
+            "lastName": state.generalInputs.surname.value,
+            "email": state.generalInputs.email.value,
+            "phone": state.phone.value,
+            "value": state.value,
+            "shelterID": state.shelter_id
         }
 
         axios.post("https://frontend-assignment-api.goodrequest.com/api/v1/shelters/contribute", body)
@@ -69,7 +67,7 @@ const Checkout = () => {
         <div className="Checkout">
             <NavProgress />
             <MainHeader value="Skontrolujte si zadané údaje" />
-            <Summary typeOfContribution={typeOfContribution} amoutOfContribution={amoutOfContribution} contactDataState={contactDataState} />
+            <Summary state={state} />
             <Checkbox onClick={checboxHandler} indeterminate={checked} checked={checked}  > Súhlasím so spracovaním mojich osobných údajov </Checkbox>
             <div style={{ display: "flex", justifyContent: "space-between", margin: "68px 0 0 0" }} >
                 <Button url="/contact" buttonProperties={buttonBackProperties} />

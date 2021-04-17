@@ -13,11 +13,11 @@ import ContributionValue from "./ContributionValue/ContributionValue";
 import Button from "../UI/button/button";
 
 const Contribution = (props) => {
+    console.log("CONTRIBUTION RENDERING")
 
     const [ shelters, setShelters ] = useState()
     const [ fetchErrorShelter, setFetchErrorShelters ] = useState(null)
-    const amountOfContribution = useSelector( state => state.amountOfContributionReducer.value )
-    const typeOfContribution = useSelector(state => state.typeOfContributionReducer )
+    const state = useSelector(state => state.contributionReducer )
 
     const dispatch = useDispatch();
 
@@ -38,7 +38,7 @@ const Contribution = (props) => {
         value: "Pokračovať"
     }
 
-    let continueCondition = typeOfContribution.specific ? typeOfContribution.shelter_id && amountOfContribution : amountOfContribution
+    let continueCondition = state.specific ? state.shelter_id && state.value : state.value
     if (continueCondition) {
         continueCondition = true
         buttonProperties = {
@@ -64,8 +64,12 @@ const Contribution = (props) => {
     }, [dispatch])
 
     const selectSpecificShelterInput = useMemo(() => {
-        return <SelectSpecificShelterInput shelters={shelters} specificTypeOfContribution={typeOfContribution.specific} />
-    }, [shelters, typeOfContribution])
+        return <SelectSpecificShelterInput shelters={shelters} specificTypeOfContribution={state.specific} />
+    }, [shelters, state.specific])
+
+    const contributionValue = useMemo(() => {
+        return <ContributionValue amountOfContribution={state.value} specific={state.specific} customInputTouched={state.customInputTouched} />
+    }, [state.value, state.specific, state.customInputTouched])
 
     return(
         <div className="ChooseContribution">
@@ -74,10 +78,10 @@ const Contribution = (props) => {
             <ContributionType 
                 selectSpecificContribution={contributeSpecificShelter} 
                 selectWholeOrgContribution={contributeWholeOrg}
-                whole={typeOfContribution.wholeOrg}
+                whole={state.wholeOrg}
                 error={fetchErrorShelter} />
             { fetchErrorShelter ? <h1 style={{ margin: "56px 0 0 0", fontFamily: "Public Sans"}}>  {fetchErrorShelter}  </h1>: selectSpecificShelterInput }
-            <ContributionValue />
+            {contributionValue}
             <div className="ContributionBtn">
                 <Button url="/contact" buttonProperties={buttonProperties} disabled={!continueCondition} />
             </div>     
