@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { useCallback, useMemo, useRef, useEffect } from 'react';
 
 // connnect Redux and action for redux reducer
 import { useSelector, useDispatch } from "react-redux";
@@ -23,7 +23,11 @@ const ContactData = (props) => {
 
     const state = useSelector( state => state.contributionReducer )
     const dispatch = useDispatch();
-    console.log("contactState")
+    const nameInput = useRef()
+
+    useEffect(() => {
+        nameInput.current.focus()
+    })
 
     const inputChangedHandler = useCallback((event, inputIdentifier) => {
         let value = event.target.value
@@ -44,7 +48,8 @@ const ContactData = (props) => {
             elementConfig: {
                 type: "text",
                 placeholder: "Zadajte Vaše meno",
-                label: "Meno"
+                label: "Meno",
+                ref: nameInput
             }
         },
         surname: {
