@@ -1,11 +1,11 @@
-import React from 'react';
+import { memo, Fragment } from 'react';
 
 import {StyledSecondaryHeader} from "../../shared/StyledComponents/StyledComponents";
 import {StyledParagraph} from "../../shared/StyledComponents/StyledComponents";
 
 const Summary = (props) => {
-    return(
-        <React.Fragment>
+    return (
+        <Fragment>
             <StyledSecondaryHeader> Akou formou chcem pomôcť" </StyledSecondaryHeader>
             <StyledParagraph> {props.state.shelter_id ? "Chcem finančne prispieť konkrétnemu útulku" : "Chcem finančne prispieť celej nadácii"} </StyledParagraph>
 
@@ -20,9 +20,9 @@ const Summary = (props) => {
 
             <StyledSecondaryHeader> Telefónne číslo </StyledSecondaryHeader>
             <StyledParagraph> { props.state.phone.value ?  "+" + props.state.phone.value  : "-" } </StyledParagraph>
-        </React.Fragment>
+        </Fragment>
     );
        
 };
 
-export default React.memo(Summary);
+export default memo(Summary);

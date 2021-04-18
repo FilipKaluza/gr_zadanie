@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 
 // connnect Redux and action for redux reducer
 import { useSelector, useDispatch } from "react-redux";

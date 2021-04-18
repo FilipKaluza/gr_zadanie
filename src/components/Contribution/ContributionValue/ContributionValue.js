@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 import { useDispatch } from "react-redux";
 
 import classNames from 'classnames';
@@ -35,8 +35,8 @@ const ContributionValue = (props) => {
     } // special dispatch for adding a classes (see bellow) to a custom Input when the user clicks on Input
 
 
-    return(
-        <React.Fragment>
+    return (
+        <Fragment>
              <div className="ContributionValueHeader" >
                 <StyledSecondaryHeader > Suma, ktorou chcem prispieť </StyledSecondaryHeader>
                 <StyledSecondaryHeader > Povinné pole </StyledSecondaryHeader>
@@ -50,8 +50,7 @@ const ContributionValue = (props) => {
                     </Row>
                 </div>
             </Row>
-        </React.Fragment>
-        
+        </Fragment>
     );
 };
 

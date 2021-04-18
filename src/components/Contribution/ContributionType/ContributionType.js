@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Row from "antd/lib/row";
 
 import classNames from 'classnames';

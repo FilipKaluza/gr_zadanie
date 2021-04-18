@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useCallback } from 'react';
+import { useEffect, useMemo, useCallback } from 'react';
 
 import { useSelector, useDispatch } from "react-redux";
 import * as actions from "../store/actions/index";

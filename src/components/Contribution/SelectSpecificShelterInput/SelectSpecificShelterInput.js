@@ -1,5 +1,3 @@
-import React from 'react';
-
 // import child components
 import { StyledSecondaryHeader } from "../../shared/StyledComponents/StyledComponents";
 

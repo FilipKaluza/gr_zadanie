@@ -1,4 +1,4 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
@@ -24,11 +24,13 @@ const rootReducer = combineReducers({
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
+  <StrictMode>
     <BrowserRouter>
         <Provider store={store}>
             <App />
-        </Provider>,
-    </BrowserRouter>,
+        </Provider>
+    </BrowserRouter>
+  </StrictMode>,
   document.getElementById('root')
 );
 

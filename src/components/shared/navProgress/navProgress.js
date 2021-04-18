@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 
 import { ReactComponent as NavLine} from "../../../assets/images/navProgressLine.svg";
 import { ReactComponent as NavLineActive} from "../../../assets/images/navProgressActiveLine.svg";
@@ -17,4 +17,4 @@ const NavProgress = (props) => {
     );
 };
 
-export default React.memo(NavProgress);
+export default memo(NavProgress);

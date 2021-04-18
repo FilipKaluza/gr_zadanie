@@ -1,4 +1,4 @@
-import React from 'react';
+import { memo } from 'react';
 import {useHistory} from 'react-router-dom';
 
 import { StyledButton } from "../../shared/StyledComponents/StyledComponents";
@@ -17,4 +17,4 @@ const Button = (props) => {
 
 } 
         
-export default React.memo(Button);
+export default memo(Button);
